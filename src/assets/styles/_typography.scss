@@ -1,0 +1,20 @@
+@font-face {
+  src: url(../fonts/Goku.ttf);
+  font-family: "Goku";
+  font-weight: 400;
+}
+
+html {
+  font-size: 10px; // base-font-size
+  min-width: 300px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Goku";
+  font-style: normal;
+  font-weight: normal;
+}
