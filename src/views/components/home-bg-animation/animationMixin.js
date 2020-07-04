@@ -7,7 +7,7 @@ const viewBox = { w: null, h: null }
 const BAR_WIDTH = 215 // px
 const BAR_ANI_DURATION = 500
 const BAR_ANI_DELAY = 200
-const GUTTER_WIDTH = 3
+const GUTTER_WIDTH = 2
 const GUTTER_ANI_DURATION = 300
 const colors = {
   bar: '#F8F4F4',
@@ -93,8 +93,8 @@ class Box {
     this.w = w
     this.h = h
     this.current = {
-      x: x + Math.min(w*0.3, 120),
-      y: y - Math.min(h*0.1, 120), 
+      x: x - Math.min(w*0.3, 120),
+      y: y - Math.min(h*0.15, 120), 
       w: 20, h: 20
     }
     this.ani = { stage: 0 }
@@ -244,7 +244,7 @@ const animationMixin = {
 
       // create big&small boxes
       this.smallBox = new Box({
-        x: 850, 
+        x: 850 + 3 * 4, 
         y: window.innerHeight - 150 - 120,
         w: 215, h: 120,
         borderOn: true,
@@ -256,8 +256,8 @@ const animationMixin = {
       this.bigBox = new Box({
         x: window.innerWidth * 0.25, 
         y: window.innerHeight * 0.375,
-        w: window.innerWidth * 0.78,
-        h: window.innerWidth * 0.65,
+        w: window.innerWidth * (1 - 0.25),
+        h: window.innerHeight * (1 - 0.375),
         borderOn: false,
         roundCorner: false,
         borderColor: colors.bigBox.border,
