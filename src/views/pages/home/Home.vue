@@ -33,6 +33,8 @@
     text-cloud.c-welcome-cloud
 
   .c-section hey
+
+  timeline.c-timeline
 </template>
 
 <script>
@@ -43,6 +45,7 @@ import ScrollIndicator from '@components/ScrollIndicator.vue'
 import StringTyper from '@components/stringTyper.vue'
 import MainTitle from './HomeMainTitle.vue'
 import TextCloud from './TextCloud.vue'
+import Timeline from './Timeline.vue'
 
 
 export default {
@@ -54,7 +57,8 @@ export default {
     ScrollIndicator,
     StringTyper,
     MainTitle,
-    TextCloud
+    TextCloud,
+    Timeline
   }
 }
 </script>
@@ -75,6 +79,11 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+}
+
+.c-timeline {
+  left: 43rem;
+  top: 53rem;
 }
 
 .c-header {
