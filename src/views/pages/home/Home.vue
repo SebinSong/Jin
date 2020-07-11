@@ -2,7 +2,7 @@
 .c-home
   background-animation
 
-  .c-section
+  .c-section#main
     .c-header
       .header-container.left
         a.link About
@@ -20,21 +20,40 @@
 
     hamburger-icon.c-menuicon
 
-    section-indicator.c-section-indicator
-
     main-title.c-main-title
 
     scroll-indicator.c-scroll-indicator
 
-    string-typer.c-string-typer(
+    string-typer.c-introduction(
       string="Hi, I'm Jin"
     )
 
     text-cloud.c-welcome-cloud
 
-  .c-section hey
+  .c-section#about
+    vertical-red-text.c-red-text-about I am ..
+
+  .c-section.gridify#work
+    .p-left
+      .c-deco-box--work
+
+      mesh-background.c-mesh-background
+
+      vertical-red-text.c-red-text-work Selected works
+    .p-right
+      project-list.c-project-list
+
+  .c-section.gridify#contact
+    .p-right
+      .c-title-container
+        h3.c-contact__title Contact
+        string-typer.c-contact__comment(
+          string="I'm excited to work with you and your company. :)"
+        )
 
   timeline.c-timeline
+
+  section-indicator.c-section-indicator
 </template>
 
 <script>
@@ -43,10 +62,12 @@ import HamburgerIcon from '@components/hamburgerIcon.vue'
 import SectionIndicator from '@components/sectionIndicator.vue'
 import ScrollIndicator from '@components/ScrollIndicator.vue'
 import StringTyper from '@components/stringTyper.vue'
+import MeshBackground from '@components/MeshBackground.vue'
 import MainTitle from './HomeMainTitle.vue'
 import TextCloud from './TextCloud.vue'
 import Timeline from './Timeline.vue'
-
+import VerticalRedText from './VerticalRedText.vue'
+import ProjectList from './ProjectList.vue'
 
 export default {
   name: 'Home',
@@ -56,15 +77,19 @@ export default {
     SectionIndicator,
     ScrollIndicator,
     StringTyper,
+    MeshBackground,
     MainTitle,
     TextCloud,
-    Timeline
+    Timeline,
+    VerticalRedText,
+    ProjectList
   }
 }
 </script>
 
 <style lang='scss' scoped>
 @import "../../../assets/styles/_variables.scss";
+$page-left-width: 33rem;
 
 .c-home {
   position: relative;
@@ -79,11 +104,34 @@ export default {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  border-bottom: 1px solid $background-grey;
+
+  &.gridify {
+    display: grid;
+    grid-template-columns: $page-left-width 1fr;
+    grid-template-rows: 100%;
+    grid-template-areas: "p-left p-right";
+
+    > * {
+      position: relative;
+    }
+
+    .p-left {
+      grid-area: p-left;
+    }
+    .p-right {
+      grid-area: p-right;
+    }
+  }
+}
+
+.c-section#work {
+  padding-bottom: 5rem;
 }
 
 .c-timeline {
   left: 43rem;
-  top: 53rem;
+  top: 66.25vh;
 }
 
 .c-header {
@@ -93,7 +141,6 @@ export default {
   transform: translateY(-50%);
   font-size: $size-body-sm;
   font-weight: 700;
-  letter-spacing: 0.5px;
   writing-mode: vertical-rl;
   height: 55rem;
   overflow: hidden;
@@ -158,7 +205,7 @@ export default {
 }
 
 .c-section-indicator {
-  position: absolute;
+  position: fixed;
   left: 9rem;
   bottom: 20rem;
 }
@@ -174,7 +221,7 @@ export default {
   transform: translateX(-50%);
 }
 
-.c-string-typer {
+.c-introduction {
   position: absolute;
   top: 19rem;
   left: 22rem;
@@ -186,7 +233,6 @@ export default {
   right: 30rem;
   font-size: $size-body-sm;
   font-weight: 700;
-  letter-spacing: 0.5px;
   display: flex;
   align-items: flex-start;
 
@@ -203,5 +249,58 @@ export default {
 .c-welcome-cloud {
   top: 10rem;
   right: 55rem;
+}
+
+.c-red-text {
+  &-about {
+    bottom: 0.25rem;
+    left: 24rem;
+  }
+
+  &-work {
+    right: 0;
+    bottom: 0;
+    font-size: 8rem;
+  }
+}
+
+.c-deco-box--work {
+  position: absolute;
+  right: 0;
+  top: 7.5rem;
+  min-width: 45%;
+  min-height: 60%;
+  background-color: darken(#F8F4F4, 2%);
+}
+
+.c-project-list {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.c-section#contact {
+  position: relative;
+  background-color: $background-grey;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 66.7vh;
+    width: 66.7vw;
+    background-color: $background-white;
+  }
+}
+
+.c-contact__title {
+  font-size: 9rem;
+}
+
+.c-contact__comment {
+  font-size: $size-body-md;
 }
 </style>

@@ -4,6 +4,19 @@
   font-weight: 400;
 }
 
+@font-face {
+  src: url(../fonts/roboto_bold_700.woff2) format('woff2');
+  font-family: "Roboto";
+  font-weight: 700;
+}
+
+@font-face {
+  src: url(../fonts/roboto_light_300.woff2) format('woff2');
+  font-family: "Roboto";
+  font-weight: 300;
+}
+
+
 html {
   font-size: 10px; // base-font-size
   min-width: 300px;
@@ -14,7 +27,19 @@ html {
 }
 
 body {
-  font-family: "Goku";
+  font-family: "Roboto";
   font-style: normal;
-  font-weight: normal;
+  font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+.heading {
+  font-family: "Goku";
+  font-weight: 700;
+  font-size: 1em;
+  letter-spacing: 1px;
 }

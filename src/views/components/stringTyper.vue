@@ -46,7 +46,8 @@ export default {
     display: inline-block;
     width: 1rem;
     height: 0.3rem;
-    margin-left: 0.2rem;
+    margin-left: 0.3rem;
+    margin-bottom: -0.2rem;
     background-color: $text-red;
   }
 }

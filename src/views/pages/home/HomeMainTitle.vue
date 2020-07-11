@@ -1,7 +1,7 @@
 <template lang="pug">
 .c-home-main-title
   .c-text-container 
-    span.text My Portfolio.
+    h3.text.heading My Portfolio.
 
   span.c-dot--inner(
     v-for="corner in corners"
@@ -41,10 +41,6 @@ export default {
 
 .c-home-main-title {
   position: absolute;
-  font: {
-    size: 12rem;
-    weight: 700;
-  }
   border: 1px solid $text-black;
   color: $text-black;
   padding: 2rem;
@@ -56,6 +52,14 @@ export default {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    letter-spacing: 0.5rem;
+
+    .text {
+      font: {
+        size: 12rem;
+        weight: 700;
+      }
+    }
   }
 }
 

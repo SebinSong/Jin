@@ -2,8 +2,9 @@
 .section-indicator
   .section-indicator__box
   .section-indicator__row(
-    v-for="sectionName in sectionList"
+    v-for="(sectionName, index) in sectionList"
     :key="sectionName"
+    :class="{ 'active': index === activeSection }"
   )
     span.line
     span.text {{ sectionName }}
@@ -19,6 +20,11 @@ export default {
         'Work',
         'Contact'
       ]
+    }
+  },
+  props: {
+    activeSection: {
+      type: Number
     }
   }
 }
@@ -70,6 +76,12 @@ export default {
     color: $text-black;
     margin-bottom: -0.2rem;
     user-select: none;
+    opacity: 0;
+  }
+
+  &.active {
+    > .line { width: 2.8rem; }
+    > .text { opacity: 1; }
   }
 }
 </style>
