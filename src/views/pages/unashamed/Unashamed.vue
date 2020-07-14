@@ -91,10 +91,12 @@
       | “How many lessons are put aside to address contraception?”
 
     .c-element-container__para
+      arrow
 </template>
 
 <script>
 import PageToolbar from '@components/PageToolbar.vue'
+import Arrow from '@components/Arrow.vue'
 import { pageData } from '@utils/resources.js'
 
 export default {
@@ -105,7 +107,8 @@ export default {
     }
   },
   components: {
-    PageToolbar
+    PageToolbar,
+    Arrow
   },
   computed: {
     imgPaths () {
