@@ -1,13 +1,25 @@
 <template lang='pug'>
-.c-hamburger
+button.c-hamburger(
+  @click='openModal'
+)
   span.bar(
     v-for='n in 3'
     :key='"bar" + n'
   )
 </template>
 <script>
+import {
+  Bus,
+  eventList
+} from '@controller/eventBus.js'
+
 export default {
-  name: 'HamburgerIcon'
+  name: 'HamburgerIcon',
+  methods: {
+    openModal () {
+      Bus.$emit(eventList.openModal)
+    }
+  }
 }
 </script>
 

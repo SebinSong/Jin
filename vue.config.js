@@ -11,6 +11,7 @@ module.exports = {
         '@components': path.join(appSrc, 'views/components'),
         '@pages': path.join(appSrc, 'views/pages'),
         '@utils': path.join(appSrc, 'views/utils'),
+        '@controller': path.join(appSrc, 'controller')
       }
     }
   }

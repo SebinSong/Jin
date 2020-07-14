@@ -9,12 +9,27 @@ $text-grey-dark: #707070;
 $background-white: #fff;
 $background-grey: #E8E1E1;
 
+// ref colors
+$ref_01: #F1CD75;
+$ref_02: #F04F50;
+$ref_03: #832CC3;
+$ref_04: #1672D4;
+$ref_05: #E1438C;
+
 // font-sizes
 $size-body-xs: 1rem;
 $size-body-sm: 1.2rem;
 $size-body-md: 1.5rem;
 $size-body-lg: 1.8rem;
 $size-body-xl: 2rem;
+
+// z-index
+$zIndex-normal: 0;
+$zIndex-modal: 10;
+
+// misc
+$page-side-padding: 8rem;
+$page-toolbar-height: 9rem;
 
 @mixin absoluteCenter {
   position: absolute;

@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@pages/home/Home.vue'
+import Unashamed from '@pages/unashamed/Unashamed.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,12 @@ const router = new VueRouter({
       component: Home,
       name: Home.name,
       meta: { title: 'Home' }
+    },
+    {
+      path: '/unashamed',
+      component: Unashamed,
+      name: Unashamed.name,
+      meta: { title: 'Unashamed' }
     }
   ]
 })
