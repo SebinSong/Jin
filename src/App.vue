@@ -1,5 +1,5 @@
 <template lang="pug">
-.c-app
+.c-app(ref='app')
   router-view
   modal(v-if='modalOn')
 </template>
@@ -26,17 +26,21 @@ export default {
       this.modalOn = true
     },
     closeModal () {
-      console.log('closeModal in App.vue')
       this.modalOn = false
+    },
+    toScrollTop () {
+      this.$refs.app.scrollTop = 0
     }
+  },
+  created () {
+    this.$router.push({
+      name: 'First'
+    })
   },
   mounted () {
     Bus.$on(eventList.openModal, this.openModal)
     Bus.$on(eventList.closeModal, this.closeModal)
-
-    this.$router.push({
-      name: 'Unashamed'
-    })
+    Bus.$on(eventList.toScrollTop, this.toScrollTop)
   }
 }
 </script>
@@ -46,5 +50,7 @@ export default {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 </style>

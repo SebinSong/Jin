@@ -4,6 +4,7 @@
     v-for='item in modalItemList'
     :key='item.id'
     :itemInfo='item'
+    @click='navigateTo(item.routeName)'
   )
 
   close-button.c-close-button(
@@ -33,8 +34,14 @@ export default {
   },
   methods: {
     closeModal () {
-      console.log('here????')
       Bus.$emit(eventList.closeModal)
+    },
+    navigateTo (routeName) {
+      this.$router.push({
+        name: routeName
+      })
+      this.closeModal()
+      Bus.$emit(eventList.toScrollTop)
     }
   }
 }

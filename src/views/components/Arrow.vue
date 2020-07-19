@@ -2,6 +2,7 @@
 .c-arrow(
   v-bind='$attrs'
   v-on='$listeners'
+  :class="{ 'is-red': isRed, 'to-right': toRight }"
 )
   .c-arrow__middle
     .c-arrow__wing.is-right
@@ -10,7 +11,17 @@
 
 <script>
 export default {
-  name: 'Arrow'
+  name: 'Arrow',
+  props: {
+    isRed: {
+      type: Boolean,
+      default: false
+    },
+    toRight: {
+      type: Boolean,
+      default: false
+    }
+  }
 }
 </script>
 
@@ -26,7 +37,6 @@ $thickness: 2px;
   display: inline-block;
   width: $width;
   height: $height;
-  border: 1px dashed #000;
   cursor: pointer;
   padding: 1.5rem 2.5rem;
   
@@ -44,6 +54,7 @@ $thickness: 2px;
   &__wing {
     position: absolute;
     height: $thickness;
+    border-radius: $thickness;
     top: 0;
     left: 0;
     width: 30%;
@@ -62,4 +73,7 @@ $thickness: 2px;
   background-color: $text-red;
 }
 
+.c-arrow.to-right{
+  transform: scale(-1,1);
+}
 </style>

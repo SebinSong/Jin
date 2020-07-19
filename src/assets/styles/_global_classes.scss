@@ -1,0 +1,40 @@
+.element-container {
+  $content-side-padding: 18rem;
+
+  position: relative;
+  padding-left: $content-side-padding;
+  padding-right: $content-side-padding;
+  margin-bottom: 7rem;
+  font-size: $size-body-md;
+
+  .element-container__title {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5px;
+  }
+  .element-container__para {
+    margin-bottom: 2rem;
+  }
+
+  strong {
+    display: inline-block;
+    margin-right: 0.7rem;
+  }
+
+  &.has-divider::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15rem;
+    height: 1px;
+    border-bottom: 2px dashed $text-grey-dark;
+  }
+}
+
+.flex-v-center {
+  display: flex;
+  align-items: center;
+}

@@ -1,5 +1,8 @@
 <template lang='pug'>
-.c-modal-item
+.c-modal-item(
+  v-bind="$attrs"
+  v-on="$listeners"
+)
   h3.c-number {{ item.number }}
   .c-description
     h5.c-name {{ item.title }}

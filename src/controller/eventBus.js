@@ -4,5 +4,6 @@ export const Bus = new Vue()
 
 export const eventList = {
   openModal: 'open-modal',
-  closeModal: 'close-modal'
+  closeModal: 'close-modal',
+  toScrollTop: 'to-scroll-top'
 }
