@@ -383,4 +383,5 @@ $content-side-padding: 18rem;
     float: left;
   }
 }
+
 </style>

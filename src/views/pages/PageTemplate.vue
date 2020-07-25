@@ -46,11 +46,15 @@
   .element-container
     prev-next(:currentPageNumber='pageNumber')
   
+  scrollbar.c-scrollbar(
+    :pageNumber='pageNumber'
+  )
 </template>
 
 <script>
 import PageToolbar from '@components/PageToolbar.vue'
 import PrevNext from '@components/PrevNext.vue'
+import Scrollbar from '@components/ScrollBar.vue'
 import { pageData } from '@utils/resources.js'
 
 export default {
@@ -62,7 +66,8 @@ export default {
   },
   components: {
     PageToolbar,
-    PrevNext
+    PrevNext,
+    Scrollbar
   },
   props: {
     pageNumber: {
@@ -104,6 +109,10 @@ $map: (
   height: auto;
   @each $num, $color in $map {
     &.is-#{$num} { --feature-color: #{$color}; }
+  }
+
+  * {
+    user-select: none;
   }
 }
 
@@ -228,5 +237,9 @@ $map: (
   }
 }
 
-
+.c-scrollbar {
+  position: fixed;
+  bottom: 5rem;
+  right: 8rem;
+}
 </style>

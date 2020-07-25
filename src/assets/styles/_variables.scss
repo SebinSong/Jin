@@ -8,6 +8,7 @@ $text-grey: #A4A4A4;
 $text-grey-dark: #707070;
 $background-white: #fff;
 $background-grey: #E8E1E1;
+$scrollbar-bg: #EAEAEA;
 
 // ref colors
 $ref_01: #F1CD75;
@@ -25,7 +26,8 @@ $size-body-xl: 2rem;
 
 // z-index
 $zIndex-normal: 0;
-$zIndex-modal: 10;
+$zIndex-indicator: 10;
+$zIndex-modal: 20;
 
 // misc
 $page-side-padding: 8rem;

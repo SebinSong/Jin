@@ -54,7 +54,7 @@ export const pageData = {
     introduction: '<strong>"Unashamed"</strong> is an organization that aims to provide teachers with successful and engaing lessons on contraception.',
     role: 'UI designer, Character designer',
     projectType: 'Interdisciplinary group project',
-    members: 'Hwaung Jin, Taylor Sparks,Jodie Anne, Hyein Lee, Cheryl',
+    members: 'Hwajung Jin, Taylor Sparks,Jodie Anne, Hyein Lee, Cheryl',
     imgs: {
       topMain: '01.png',
       pageIntro: '01.jpg'
@@ -67,7 +67,7 @@ export const pageData = {
     introduction: '<strong>Art at heart</strong> is an organization that inspires and motivated young, diverse, artistic people to volunteer at the Auckland Art Gallery.',
     role: 'UI/UX designer, Researcher',
     projectType: 'Commercial project',
-    members: 'Hwaung Jin, Taylor Sparks,Jade Berge',
+    members: 'Hwajung Jin, Taylor Sparks,Jade Berge',
     imgs: {
       topMain: '02.png',
       pageIntro: '02.png'
