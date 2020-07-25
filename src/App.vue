@@ -1,6 +1,7 @@
 <template lang="pug">
 .c-app(
   ref='app'
+  :class="{ 'with-no-scrollbar': noScrollbar }"
   @scroll='onScroll'
 )
   router-view
@@ -21,7 +22,8 @@ export default {
   },
   data () {
     return {
-      modalOn: false
+      modalOn: false,
+      noScrollbar: false
     }
   },
   methods: {
@@ -30,6 +32,13 @@ export default {
     },
     closeModal () {
       this.modalOn = false
+    },
+    inspectRoute () {
+      console.log('current Route: ', this.$route)
+      if (this.$route.name === 'Home')
+        this.noScrollbar = false
+      else if (!this.noScrollbar)
+        this.noScrollbar = true
     },
     toScrollTop () {
       this.$refs.app.scrollTop = 0
@@ -49,11 +58,18 @@ export default {
       Bus.$emit(eventList.appOnScroll, { yFraction })
     }
   },
+  watch: {
+    $route: function () {
+      this.inspectRoute()
+    }
+  },
   mounted () {
     Bus.$on(eventList.openModal, this.openModal)
     Bus.$on(eventList.closeModal, this.closeModal)
     Bus.$on(eventList.toScrollTop, this.toScrollTop)
     Bus.$on(eventList.scrollBarMove, this.scrollTo)
+
+    this.inspectRoute()
   },
   beforeDestroy () {
     Bus.$off(eventList.openModal, this.openModal)
@@ -64,11 +80,22 @@ export default {
 </script>
 
 <style lang="scss">
+
 .c-app {
   position: relative;
   width: 100vw;
   height: 100vh;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: hidden;
+
+  &.with-no-scrollbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: -20px;
+    width: unset;
+    height: unset;
+  }
 }
 </style>

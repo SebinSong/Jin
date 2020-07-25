@@ -1,6 +1,8 @@
 <template lang='pug'>
 .c-toolbar
-  .c-toolbar-title Jin
+  .c-toolbar-title(
+    @click="toHome"
+  ) Jin
   hamburger-icon
 </template>
 
@@ -11,6 +13,13 @@ export default {
   name: 'PageToolbar',
   components: {
     HamburgerIcon
+  },
+  methods: {
+    toHome () {
+      this.$router.push({
+        name: 'Home'
+      })
+    }
   }
 }
 </script>
@@ -35,5 +44,6 @@ export default {
 .c-toolbar-title {
   font-size: 2.5rem;
   color: $text-black;
+  cursor: pointer;
 }
 </style>

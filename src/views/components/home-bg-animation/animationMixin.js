@@ -306,7 +306,7 @@ const animationMixin = {
       }
     },
     killAnimation () {
-      window.requestAnimationFrame(requestId)
+      window.cancelAnimationFrame(requestId)
     }
   }
 }
