@@ -88,7 +88,7 @@ export default {
   justify-content: center;
 
   &.has-both {
-    justify-content: space-between;
+    justify-content: center;
   }
 }
 
