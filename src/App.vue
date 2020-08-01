@@ -88,6 +88,9 @@ export default {
     Bus.$on(eventList.toScrollTop, this.toScrollTop)
     Bus.$on(eventList.scrollBarMove, this.scrollTo)
 
+    this.$router.push({
+      name: 'Home'
+    })
     this.measureBrowserScrollbarWidth()
     this.inspectRoute()
   },
