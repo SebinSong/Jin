@@ -5,9 +5,11 @@ $text-blue: #01B7FF;
 $text-purple: #832CC3;
 $text-pink: #E1438C;
 $text-grey: #A4A4A4;
+$text-white: #fff;
 $text-grey-dark: #707070;
 $background-white: #fff;
 $background-grey: #E8E1E1;
+$background-light-grey: #F8F4F4;
 $scrollbar-bg: #EAEAEA;
 
 // ref colors
@@ -32,6 +34,11 @@ $zIndex-modal: 20;
 // misc
 $page-side-padding: 8rem;
 $page-toolbar-height: 9rem;
+$page-min-width: 32rem;
+$content-side-padding: 18rem;
+
+// colors - misc
+$img-box-shadow: 0.5rem 0.5rem 0.5rem 0.5rem rgba(0,0,0,0.05);
 
 @mixin absoluteCenter {
   position: absolute;

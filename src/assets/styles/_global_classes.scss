@@ -1,24 +1,37 @@
-.element-container {
-  $content-side-padding: 18rem;
+@import "_variables";
 
+.element-container {
   position: relative;
   padding-left: $content-side-padding;
   padding-right: $content-side-padding;
   margin-bottom: 7rem;
   font-size: $size-body-md;
 
-  .element-container__title {
-    font-size: 2.4rem;
-    margin-bottom: 3rem;
-    letter-spacing: 0.5px;
-  }
-  .element-container__para {
-    margin-bottom: 2rem;
-  }
-
   strong {
     display: inline-block;
     margin-right: 0.7rem;
+  }
+
+  &__title {
+    font-size: 2.4rem;
+    margin-bottom: 3rem;
+    letter-spacing: 0.5px;
+
+    &.is-big {
+      font-size: 5rem;
+    }
+
+    &.is-centered {
+      text-align: center;
+    }
+  }
+  &__para {
+    margin-bottom: 2rem;
+
+    &.is-full-width {
+      width: 100vw;
+      margin-left: -$content-side-padding;
+    }
   }
 
   &.has-divider::before {
@@ -37,4 +50,16 @@
 .flex-v-center {
   display: flex;
   align-items: center;
+}
+
+.brief-para {
+  margin-bottom: 7rem;
+  font-size: $size-body-md;
+
+  strong:not(:first-child) {
+    margin-left: 0.65rem;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

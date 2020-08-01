@@ -2,6 +2,7 @@
 .c-app(
   ref='app'
   :class="{ 'with-no-scrollbar': noScrollbar }"
+  :style="styleClasses"
   @scroll='onScroll'
 )
   router-view
@@ -23,7 +24,15 @@ export default {
   data () {
     return {
       modalOn: false,
-      noScrollbar: false
+      noScrollbar: false,
+      scrollbarWidth: 0
+    }
+  },
+  computed: {
+    styleClasses () {
+      return this.noScrollbar ? {
+        'right': `${-this.scrollbarWidth}px`
+      } : {}
     }
   },
   methods: {
@@ -34,16 +43,26 @@ export default {
       this.modalOn = false
     },
     inspectRoute () {
-      console.log('current Route: ', this.$route)
       if (this.$route.name === 'Home')
         this.noScrollbar = false
       else if (!this.noScrollbar)
         this.noScrollbar = true
     },
+    measureBrowserScrollbarWidth () {
+      const el = document.createElement('div')
+      el.classList.add('c-scrollbar-measure')
+      this.$refs.app.appendChild(el)
+
+      this.scrollbarWidth = el.offsetWidth - el.clientWidth
+      this.$refs.app.removeChild(el)
+    },
     toScrollTop () {
       this.$refs.app.scrollTop = 0
     },
     scrollTo ({ yFraction }) {
+      if (!this.$refs.app)
+        return
+
       const toY = (this.$refs.app.scrollHeight - window.innerHeight) * yFraction
 
       this.$refs.app.scrollTop = toY
@@ -69,6 +88,7 @@ export default {
     Bus.$on(eventList.toScrollTop, this.toScrollTop)
     Bus.$on(eventList.scrollBarMove, this.scrollTo)
 
+    this.measureBrowserScrollbarWidth()
     this.inspectRoute()
   },
   beforeDestroy () {
@@ -93,9 +113,17 @@ export default {
     top: 0;
     left: 0;
     bottom: 0;
-    right: -20px;
     width: unset;
     height: unset;
   }
+}
+
+.c-scrollbar-measure {
+  position: fixed;
+  overflow: scroll;
+  width: 10rem;
+  height: 10rem;
+  top: -300rem;
+  left: -300rem;
 }
 </style>

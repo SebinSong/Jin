@@ -39,7 +39,7 @@
     )
     .c-rep-image-placeholder(
       v-else
-    )
+    ) Image or Video
 
   slot
 
@@ -233,7 +233,16 @@ $map: (
   }
 
   .c-rep-image-placeholder {
-    border: 1px dashed var(--feature-color);
+    height: 42rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    background-color: var(--feature-color);
+    color: $text-white;
+    font-size: 2rem;
+    font-weight: 700;
+    border: 1px dashed #000;
   }
 }
 

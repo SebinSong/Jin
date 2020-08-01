@@ -2,25 +2,20 @@
 page-template(
   :pageNumber='1'
 )
-  .c-brief
-    h3.c-brief__title Brief
+  page-brief(
+    :imgPath='imgPaths.briefTopImage'
+    contentTitle='Current Situation'
+  )
+    .brief-para 
+      | Current systems do not provide teachers with effective resources 
+      | when it comes to teaching contraception in their classroom’s.
+      | There is no set standard on what to teach or how to teach this sensitive topic.
 
-    img.c-brief__top-image(
-      :src='imgPaths.briefTopImage'
-    )
+    .brief-para
+      | A lot of individual teachers tend to make their own decisions on
+      | what and when to teach, due to the lack of resources they have.This is not great,
+      | as the teachers may be holding back informationthat can be crucial or life-changing to learners.
 
-    .c-brief__content
-      h4.content-title Current Situation
-      .content-main
-        .content-para 
-          | Current systems do not provide teachers with effective resources 
-          | when it comes to teaching contraception in their classroom’s.
-          | There is no set standard on what to teach or how to teach this sensitive topic.
-
-        .content-para
-          | A lot of individual teachers tend to make their own decisions on
-          | what and when to teach, due to the lack of resources they have.This is not great,
-          | as the teachers may be holding back informationthat can be crucial or life-changing to learners.
           
   .element-container.has-divider.c-prototype
     h3.c-prototype__title
@@ -154,45 +149,49 @@ page-template(
 
 <script>
 import PageTemplate from '../PageTemplate.vue'
+import PageBrief from '../PageBrief.vue'
 import Arrow from '@components/Arrow.vue'
 
 export default {
   name: 'First',
   components: {
     PageTemplate,
+    PageBrief,
     Arrow
   },
   computed: {
     imgPaths () {
+      const path = fileName => require('@/assets/images/01/' + fileName)
+      
       return {
         topMain: require('@/assets/images/pageMain/01.png'),
-        briefTopImage: require('@/assets/images/01/brief-image.png'),
-        graph: require('@/assets/images/01/graph.png'),
-        logo1: require('@/assets/images/01/advocates_for_youth_logo.png'),
-        logo2: require('@/assets/images/01/sex_ed_logo.png'),
-        logo3: require('@/assets/images/01/ry_logo.png'),
-        logo4: require('@/assets/images/01/sex_etc_logo.jpg'),
-        des: require('@/assets/images/01/des.png'),
-        test1: require('@/assets/images/01/tester_01.jpg'),
-        test2: require('@/assets/images/01/tester_02.jpg'),
-        test3: require('@/assets/images/01/tester_03.png'),
-        test4: require('@/assets/images/01/tester_04.png'),
-        test5: require('@/assets/images/01/tester_05.jpg'),
-        web1: require('@/assets/images/01/web_01.png'),
-        web2: require('@/assets/images/01/web_02.png'),
-        web3: require('@/assets/images/01/web_03.png'),
-        web4: require('@/assets/images/01/web_04.png'),
-        web5: require('@/assets/images/01/web_05.png'),
-        web6: require('@/assets/images/01/web_06.png'),
-        web7: require('@/assets/images/01/web_07.png'),
-        web8: require('@/assets/images/01/web_08.png'),
-        quiz1: require('@/assets/images/01/quiz_01.jpg'),
-        quiz2: require('@/assets/images/01/quiz_02.jpg'),
-        quiz3: require('@/assets/images/01/quiz_03.jpg'),
-        quiz4: require('@/assets/images/01/quiz_04.jpg'),
-        quiz5: require('@/assets/images/01/quiz_05.jpg'),
-        quiz6: require('@/assets/images/01/quiz_06.jpg'),
-        quiz7: require('@/assets/images/01/quiz_07.jpg')
+        briefTopImage: path('brief-image.png'),
+        graph: path('graph.png'),
+        logo1: path('advocates_for_youth_logo.png'),
+        logo2: path('sex_ed_logo.png'),
+        logo3: path('ry_logo.png'),
+        logo4: path('sex_etc_logo.jpg'),
+        des: path('des.png'),
+        test1: path('tester_01.jpg'),
+        test2: path('tester_02.jpg'),
+        test3: path('tester_03.png'),
+        test4: path('tester_04.png'),
+        test5: path('tester_05.jpg'),
+        web1: path('web_01.png'),
+        web2: path('web_02.png'),
+        web3: path('web_03.png'),
+        web4: path('web_04.png'),
+        web5: path('web_05.png'),
+        web6: path('web_06.png'),
+        web7: path('web_07.png'),
+        web8: path('web_08.png'),
+        quiz1: path('quiz_01.jpg'),
+        quiz2: path('quiz_02.jpg'),
+        quiz3: path('quiz_03.jpg'),
+        quiz4: path('quiz_04.jpg'),
+        quiz5: path('quiz_05.jpg'),
+        quiz6: path('quiz_06.jpg'),
+        quiz7: path('quiz_07.jpg')
       }
     }
   }
@@ -201,42 +200,6 @@ export default {
 
 <style lang='scss' scoped>
 @import "../../../assets/styles/_variables.scss";
-
-$content-side-padding: 18rem;
-
-.c-brief {
-  position: relative;
-  padding: 12rem $content-side-padding;
-
-  &__title {
-    font-size: 9rem;
-  }
-
-  &__content {
-    display: flex;
-    align-items: flex-end;
-
-    .content-title {
-      font-size: 3rem;
-      margin-right: 4rem;
-    }
-
-    .content-para {
-      margin-bottom: 7rem;
-      font-size: $size-body-md;
-    }
-    .content-para:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__top-image {
-    position: absolute;
-    top: -8rem;
-    right: 18rem;
-    width: 30rem;
-  }
-}
 
 .c-prototype {
   position: relative;
