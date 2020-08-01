@@ -4,6 +4,7 @@ const resolvePath = relPath => path.resolve(__dirname, relPath)
 const appSrc = resolvePath('src')
 
 module.exports = {
+  outputDir: 'docs',
   configureWebpack: {
     resolve: {
       alias: {
