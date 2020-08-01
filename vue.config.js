@@ -4,11 +4,9 @@ const resolvePath = relPath => path.resolve(__dirname, relPath)
 const appSrc = resolvePath('src')
 
 module.exports = {
-  /*
   publicPath: process.env.NODE_ENV === 'production'
     ? '/Jin/'
     : '/',
-  */
   outputDir: 'docs',
   configureWebpack: {
     resolve: {
