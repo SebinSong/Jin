@@ -4,7 +4,7 @@
   .section-indicator__row(
     v-for="(sectionName, index) in sectionList"
     :key="sectionName"
-    :class="{ 'active': index === activeSection }"
+    :class="{ 'active': sectionName === activeSection }"
   )
     span.line
     span.text {{ sectionName }}
@@ -16,15 +16,15 @@ export default {
   data () {
     return {
       sectionList: [
-        'About',
-        'Work',
-        'Contact'
+        'about',
+        'work',
+        'contact'
       ]
     }
   },
   props: {
     activeSection: {
-      type: Number
+      type: String
     }
   }
 }
@@ -54,8 +54,10 @@ export default {
 }
 
 .section-indicator__row {
-  display: flex;
-  align-items: flex-end;
+  $timing-function: cubic-bezier(.87,.08,.91,.44);
+
+  display: block;
+  overflow: hidden;
 
   > * {
     display: inline-block;
@@ -70,18 +72,42 @@ export default {
   }
 
   .text {
+    position: relative;
     font-size: $size-body-xs;
     font-weight: bold;
     letter-spacing: 0.5px;
     color: $text-black;
     margin-bottom: -0.2rem;
     user-select: none;
-    opacity: 0;
+    transform: translateX(120%);
+    overflow: hidden;
+
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: $text-black;
+    }
   }
 
   &.active {
-    > .line { width: 2.8rem; }
-    > .text { opacity: 1; }
+    > .line { 
+      width: 2.8rem; 
+    }
+
+    > .text {
+      transform: translateX(0%);
+      transition: transform 0.28s $timing-function;
+
+      &::after {
+        transform: translateX(-110%);
+        transition: transform 0.25s $timing-function 0.4s;
+      }
+    }
   }
 }
 </style>

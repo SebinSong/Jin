@@ -1,7 +1,5 @@
 <template lang='pug'>
-.c-prev-next(
-  :class="{ 'has-both': prevData && nextData }"
-)
+.c-prev-next
   .c-prev(
     v-if="prevData"
     @click="navigateTo(prevData)"
@@ -68,7 +66,6 @@ export default {
       this.$router.push({
         name: data.routeName
       })
-      console.log('event name: ', eventList.toScrollTop)
       Bus.$emit(eventList.toScrollTop)
     }
   },
@@ -86,10 +83,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-
-  &.has-both {
-    justify-content: center;
-  }
 }
 
 .c-prev,

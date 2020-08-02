@@ -1,7 +1,7 @@
 <template lang='pug'>
 .c-project-list
   ul.c-list-container
-    li.c-list-item
+    li.c-title
       svg.c-list-title(
         xmlns="http://www.w3.org/2000/svg" 
         xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -11,39 +11,64 @@
           x="120"
           y="37"
         ) Project Name
-    li.c-list-item(
-      v-for="(item, index) in projects"
-      :key="'project-' + index"
+
+    project-list-item(
+      v-for='item in projects'
+      :key='item.projectName'
+      :itemInfo='item'
+      tag='li'
+      @click='navigateTo(item)'
     )
-      p.c-list-item--name.heading {{ item.projectName }}
-      .c-list-item--description
-        span.project-type(
-          :class="{ 'commercial': item.isCommercial }"
-        ) {{ item.isCommercial ? 'Commercial Project' : 'Personal Project' }}
-        span.project-client(
-          v-if="item.isCommercial"
-        ) {{ item.client }}
 </template>
 
 <script>
+import ProjectListItem from './ProjectListItem.vue'
+
 export default {
   name: 'ProjectList',
+  components: {
+    ProjectListItem
+  },
   data () {
     return {
       projects: [
-        { projectName: 'Art at heart', 
+        { 
+          projectName: 'Unashamed',
+          isCommercial: false,
+          number: 1,
+          route: 'First'
+        },
+        { 
+          projectName: 'Art at heart', 
           isCommercial: true, 
-          client: 'Auckland Art Gallery' },
-        { projectName: 'Bognarson',
-          isCommercial: true,
-          client: 'Bognarson' },
-        { projectName: 'Scanny',
-          isCommercial: false },
-        { projectName: 'Dream List',
-          isCommercial: false },
-        { projectName: 'Flip',
-          isCommercial: false }
+          client: 'Auckland Art Gallery',
+          number: 2,
+          route: 'Second'
+        },
+        { 
+          projectName: 'Dream List',
+          isCommercial: false ,
+          number: 3,
+          route: 'Third'
+        },
+        { 
+          projectName: 'Scanny',
+          isCommercial: false ,
+          number: 4,
+          route: 'Fourth'
+        },
+        { 
+          projectName: 'Flip',
+          isCommercial: false,
+          number: 5,
+          route: 'Fifth'
+        }
       ]
+    }
+  },
+  methods: {
+    navigateTo ({ route }) {
+      this.$router.push({ name: route })
     }
   }
 }
@@ -60,6 +85,13 @@ export default {
   position: relative;
   width: 100%;
   list-style: none;
+}
+
+.c-title {
+  display: block;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid $text-grey-dark;
+  user-select: none;
 }
 
 .c-list-item {

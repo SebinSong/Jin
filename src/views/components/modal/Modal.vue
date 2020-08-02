@@ -66,7 +66,7 @@ export default {
 .c-close-button {
   position: absolute;
   z-index: 1;
-  left: 3rem;
+  right: 3rem;
   top: 3rem;
 }
 </style>

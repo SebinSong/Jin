@@ -113,6 +113,7 @@ $thumb-bg-list: $ref-01, $ref-02, $ref-03, $ref-04, $ref-05;
   z-index: $zIndex-indicator;
   width: $scrollbar-width;
   height: $scrollbar-height;
+  cursor: move;
 
   @for $num from 1 through 5 {
     &.is-#{$num} {

@@ -29,7 +29,6 @@ export default {
       const currentY = j * MESH_SIDE_LENGTH
       d += `M0,${currentY} L${viewBox.w},${currentY} `
     }
-    console.log('rowAmount', rowAmount)
     pathEl.setAttribute('d', d)
 
     function init () {

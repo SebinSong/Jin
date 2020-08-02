@@ -41,9 +41,6 @@ export default {
   },
   components: {
     PageTemplate
-  },
-  mounted () {
-    console.log('outputImgPaths: ', this.outputImgPaths)
   }
 }
 </script>

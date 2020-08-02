@@ -1,13 +1,13 @@
 <template lang='pug'>
-.c-home
+.c-home(ref='home')
   background-animation
 
-  .c-section#main
+  .c-section#main(ref='main')
     .c-header
       .header-container.left
-        a.link About
+        a.link(@click="scrollTo('about')") About
         span.header__line.left
-        a.link Contact me
+        a.link(@click="scrollTo('contact')") Contact me
       .header-container.right
         span.header__line.right
         span.language
@@ -30,10 +30,10 @@
 
     text-cloud.c-welcome-cloud
 
-  .c-section#about
+  .c-section#about(ref='about')
     vertical-red-text.c-red-text-about I am ..
 
-  .c-section.gridify#work
+  .c-section.gridify#work(ref='work')
     .p-left
       .c-deco-box--work
 
@@ -43,7 +43,7 @@
     .p-right
       project-list.c-project-list
 
-  .c-section.gridify#contact
+  .c-section.gridify#contact(ref='contact')
     .p-right
       .c-title-container
         h3.c-contact__title Contact
@@ -53,7 +53,9 @@
 
   timeline.c-timeline
 
-  section-indicator.c-section-indicator
+  section-indicator.c-section-indicator(
+    :activeSection='sectionDetector.current'
+  )
 </template>
 
 <script>
@@ -83,6 +85,67 @@ export default {
     Timeline,
     VerticalRedText,
     ProjectList
+  },
+  data () {
+    return {
+      sectionDetector: {
+        current: 'main',
+        sections: [
+          { name: 'main', top: 0 },
+          { name: 'about', top: null },
+          { name: 'work', top: null },
+          { name: 'contact', top: null },
+        ]
+      }
+    }
+  },
+  methods: {
+    initSectionDetector () {
+      const { sections } = this.sectionDetector
+
+      sections.forEach((section) => {
+        const el = this.$refs[section.name]
+        
+        if (el)
+          section.top = el.offsetTop
+      })
+    },
+    scrollHandler () {
+      const { sections } = this.sectionDetector
+      const currentScrollTop = this.$refs.home.scrollTop
+
+      for (let i=0; i<sections.length; i++) {
+        const s = sections[i]
+
+        if (currentScrollTop < s.top - window.innerHeight/2)
+          break;
+        else {
+          this.sectionDetector.current = s.name
+          continue;
+        }
+      }
+    },
+    resizeHandler () {
+      this.initSectionDetector()
+      this.scrollHandler()
+    },
+    scrollTo (sectionTo) {
+      const targetSection = this.sectionDetector.sections.find(
+        section => section.name === sectionTo
+      )
+      
+      if (targetSection)
+        this.$refs.home.scrollTop = targetSection.top
+    }
+  },
+  mounted () {
+    this.initSectionDetector()
+    this.$refs.home.addEventListener('scroll', this.scrollHandler)
+    window.addEventListener('resize', this.resizeHandler)
+  },
+  beforeDestory () {
+    this.$refs.home.removeEventListener('scroll', this.scrollHandler)
+    window.removeEventListener('resize', this.resizeHandler)
   }
 }
 </script>
@@ -97,6 +160,10 @@ $page-left-width: 33rem;
   height: 100vh;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  .animation-on {
+    overflow: hidden;
+  }
 }
 
 .c-section {
