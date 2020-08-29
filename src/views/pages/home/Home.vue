@@ -1,6 +1,6 @@
 <template lang='pug'>
 .c-home(ref='home')
-  background-animation
+  background-animation(v-if='false')
 
   .c-section#main(ref='main')
     .c-header
@@ -13,22 +13,23 @@
         span.language
           span.language__item Korea
           span.language__item.active New Zealand
-    
-    .c-profession
-      span.featureline
-      span.profession-title UI Designer / Art Director
+  
+    template(v-if='false')
+      main-title.c-main-title
+
+      text-cloud.c-welcome-cloud
+
+      .c-profession
+        span.featureline
+        span.profession-title UI Designer / Art Director
+
+      string-typer.c-introduction(
+        string="Hi, I'm Jin"
+      )
 
     hamburger-icon.c-menuicon
 
-    main-title.c-main-title
-
     scroll-indicator.c-scroll-indicator
-
-    string-typer.c-introduction(
-      string="Hi, I'm Jin"
-    )
-
-    text-cloud.c-welcome-cloud
 
   .c-section#about(ref='about')
     vertical-red-text.c-red-text-about I am ..
@@ -278,6 +279,7 @@ $page-left-width: 33rem;
 }
 
 .c-main-title {
+  position: absolute;
   top: 22rem;
   left: 22rem;
 }

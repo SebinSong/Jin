@@ -40,7 +40,6 @@ export default {
 @import "../../../assets/styles/_variables.scss";
 
 .c-home-main-title {
-  position: absolute;
   border: 1px solid $text-black;
   color: $text-black;
   padding: 2rem;
