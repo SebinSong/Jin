@@ -3,10 +3,10 @@ import VueMq from 'vue-mq'
 
 const config = {
   breakpoints: {
-    'sm': 300,
-    'md': 768,
-    'lg': 1000,
-    'xl': Infinity
+    'small': 320,
+    'phone': 768,
+    'tablet': 1200,
+    'desktop': Infinity
   },
   defaultBreakpoint: 'sm'
 }

@@ -114,6 +114,7 @@ $thumb-bg-list: $ref-01, $ref-02, $ref-03, $ref-04, $ref-05;
   width: $scrollbar-width;
   height: $scrollbar-height;
   cursor: move;
+  display: none;
 
   @for $num from 1 through 5 {
     &.is-#{$num} {
@@ -137,7 +138,10 @@ $thumb-bg-list: $ref-01, $ref-02, $ref-03, $ref-04, $ref-05;
     height: $thumb-height;
     border-radius: $scrollbar-width;
   }
-}
 
+  @include from (1000px) {
+    display: block;
+  }
+}
 
 </style>

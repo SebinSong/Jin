@@ -1,5 +1,5 @@
 <template lang='pug'>
-.c-prev-next
+.c-prev-next.mt-20-10
   .c-prev(
     v-if="prevData"
     @click="navigateTo(prevData)"
@@ -83,6 +83,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 6rem;
+  flex-wrap: wrap;
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
 }
 
 .c-prev,
@@ -90,8 +96,9 @@ export default {
   position: relative;
   display: flex;
   flex-direction: column;
-  width: 40rem;
-  min-height: 35rem;
+  width: 30rem;
+  min-height: 24rem;
+  margin-bottom: 3rem;
   height: auto;
   align-items: center;
   overflow: hidden;
@@ -100,7 +107,7 @@ export default {
 
   .c-top-text {
     display: block;
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
     font: {
       size: $size-body-lg;
       weight: 700;
@@ -109,18 +116,89 @@ export default {
 
   .c-title {
     position: absolute;
-    top: 30%;
+    top: 26%;
     left: 50%;
     width: max-content;
     transform: translate(-50%, -50%);
-    font-size: 7rem;
+    font-size: 4rem;
   }
 
   .c-image {
     display: block;
-    width: 27rem;
-    height: 18rem;
-    margin-bottom: 3.5rem;
+    width: 20rem;
+    height: 14rem;
+    margin-bottom: 2.5rem;
+  }
+
+  @include tablet {
+    margin-bottom: 0;
+    min-height: 30rem;
+
+    .c-top-text {
+      margin-bottom: 6rem;
+    }
+
+    .c-title {
+      font-size: 5rem;
+    }
+
+    .c-image {
+      width: 22rem;
+      height: 15rem;
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  @include desktop {
+    width: 40rem;
+    min-height: 35rem;
+
+    .c-top-text {
+      font-size: $size-body-xl;
+    }
+
+    .c-title {
+      font-size: 7rem;
+    }
+
+    .c-image {
+      width: 27rem;
+      height: 18rem;
+      margin-bottom: 3.5rem;
+    }
+  }
+
+  @include largescreen {
+    width: 46rem;
+
+    .c-top-text {
+      font-size: $size-body-xxl;
+    }
+
+    .c-title {
+      font-size: 8rem;
+    }
+
+    .c-image {
+      width: 35rem;
+      height: 22rem;
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+.c-prev:not(:last-child) {
+
+  @include tablet {
+    margin-right: 2rem;
+  }
+
+  @include desktop {
+    margin-right: 6rem;
+  }
+
+  @include largescreen {
+    margin-right: 8rem;
   }
 }
 </style>

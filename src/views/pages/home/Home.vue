@@ -1,6 +1,6 @@
 <template lang='pug'>
 .c-home(ref='home')
-  background-animation(v-if='false')
+  background-animation
 
   .c-section#main(ref='main')
     .c-header
@@ -14,7 +14,7 @@
           span.language__item Korea
           span.language__item.active New Zealand
   
-    template(v-if='false')
+    template
       main-title.c-main-title
 
       text-cloud.c-welcome-cloud

@@ -52,6 +52,209 @@
   align-items: center;
 }
 
+// brief-related
+
+.brief-title,
+.brief-subtitle {
+  font-size: 2.2rem;
+  margin-bottom: 4rem;
+}
+
+.brief-subtitle {
+  color: $text-grey-dark;
+}
+
+.brief-paragraph {
+  font-size: $size-body-md;
+  margin-bottom: 6rem;
+  line-height: 1.4;
+}
+
+@include tablet {
+  .brief-title,
+  .brief-subtitle {
+    font-size: 2.5rem;
+  }
+
+  .brief-paragraph {
+    font-size: $size-body-lg;
+  }
+}
+
+@include desktop {
+  .brief-title,
+  .brief-subtitle {
+    font-size: 3.3rem;
+    margin-bottom: 6rem;
+  }
+
+  .brief-paragraph {
+    font-size: $size-body-xxl;
+    margin-bottom: 8rem;
+  }
+}
+
+@include largescreen {
+  .brief-title,
+  .brief-subtitle {
+    font-size: 4rem;
+    margin-bottom: 8rem;
+  }
+
+  .brief-paragraph {
+    font-size: $size-body-huge;
+    margin-bottom: 9.5rem;
+  }
+}
+
+// page-layout related
+.page-section {
+  position: relative;
+  width: 100%;
+  padding: 0 3rem;
+
+  &.no-padding {
+    padding: 0;
+
+    .page-section__title,
+    .page-section__description {
+      margin-left: 3rem;
+    }
+  }
+
+  @include tablet {
+    padding: 0 10rem;
+
+    &.no-padding {
+      padding: 0;
+
+      .page-section__title,
+      .page-section__description {
+        margin-left: 10rem;
+      }
+    }
+  }
+
+  &__description {
+    font-size: $size-body-lg;
+
+    @include tablet {
+      font-size: $size-body-xl;
+    }
+  }
+
+  .page-section__description {
+    font-size: $size-body-lg;
+
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+
+    @include tablet {
+      font-size: $size-body-xl;
+    }
+
+    @include desktop {
+      font-size: $size-body-xxl;
+    }
+
+    @include largescreen {
+      font-size: $size-body-huge;
+    }
+  }
+}
+
+// Ribbons
+.ribbon-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0 1.5rem;
+
+  .ribbon-element {
+    position: relative;
+    min-height: 10rem;
+    min-width: 25rem;
+
+    &:not(:last-child) {
+      margin-bottom: 6rem;
+    }
+    &:not(:last-child)::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 3rem;
+      min-height: 8rem;
+      bottom: 0;
+      left: 50%;
+      transform: translate(-50%, 100%);
+      background-color: var(--feature-color);
+    }
+  }
+}
+
+// styled-box-container
+.styled-box-flex-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+// utils
+@for $i from 1 through 20 {
+  .mt-#{$i} {
+    margin-top: #{$i}rem !important;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem !important;
+  }
+
+  .pt-#{$i} {
+    padding-top: #{$i}rem !important;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: #{$i}rem !important;
+  }
+}
+
+.mt-20-10 {
+  margin-top: 10rem !important;
+
+  @include tablet {
+    margin-top: 20rem !important;
+  }
+}
+
+.dashed {
+  border: 1px dashed #000;
+}
+
+.color-featured {
+  display: inline-block;
+  color: var(--feature-color);
+  margin: 0 0.5rem;
+}
+
+.is-quote {
+  &::before,
+  &::after {
+    content: '"';
+  }
+}
+
+.unstyled-heading {
+  font-weight: 400;
+  font-family: "Roboto";
+  color: $text-grey;
+}
+
+// depricated
 .brief-para {
   margin-bottom: 7rem;
   font-size: $size-body-md;

@@ -33,12 +33,15 @@ export default {
   left: 0;
   width: 100vw;
   height: $page-toolbar-height;
-  padding-left: $page-side-padding; 
-  padding-right: $page-side-padding;
+  padding: 0 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 3;
+
+  @include tablet {
+    padding: 0 8rem;
+  }
 }
 
 .c-toolbar-title {
