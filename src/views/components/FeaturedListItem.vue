@@ -36,7 +36,7 @@ export default {
     width: 1rem;
     height: 1rem;
     border-radius: 50%;
-    margin: 0.5rem 1rem 0 1rem;
+    margin: 0.8rem 1rem 0 1rem;
     background-color: var(--feature-color);
   }
 }

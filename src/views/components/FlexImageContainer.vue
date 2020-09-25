@@ -54,8 +54,8 @@ export default {
       width: 100%;
       height: auto;
       margin-bottom: 2rem;
-      border: 1px solid rgba(0,0,0,0.5);
-      box-shadow: 0.75rem 0.75rem 0 0 var(--feature-color);
+      border: 1px solid rgba(0,0,0,0.15);
+      box-shadow: $img-box-shadow;
     }
 
     &__name {

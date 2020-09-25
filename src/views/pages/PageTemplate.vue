@@ -20,6 +20,7 @@
     
     .c-page-sub-introduction
       .c-feature-box
+      .c-grey-image-box
       
       .c-rep-image-container
         img.c-rep-image(
@@ -42,8 +43,6 @@
         .c-line
           .c-label Team Members
           .c-content {{ projectData.members }}
-    
-      .c-grey-image-box(v-if='false')
 
   slot
 
@@ -371,7 +370,7 @@ $map: (
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-between;
-    padding: 7rem 8.5rem 0 7rem;
+    padding: 7rem 8.5rem 10rem 7rem;
 
     .feature-box {
       width: 35rem;
@@ -394,11 +393,11 @@ $map: (
   }
 
   @include desktop {
-    padding: 7rem 13rem 0 7rem;
+    padding: 7rem 13rem 15rem 7rem;
   }
 
   @include largescreen {
-    padding: 12rem 15rem;
+    padding: 12rem 15rem 12rem 17rem;
 
     .feature-box {
       width: 40rem;
@@ -419,10 +418,27 @@ $map: (
 }
 
 .c-grey-image-box {
-  position: relative;
+  position: absolute;
+  display: none;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  height: 25rem;
+  height: 15rem;
   background-color: $background-grey;
+  z-index: -1;
+
+  @include from(1000px) {
+    display: block;
+    height: 18rem;
+  }
+
+  @include desktop {
+    height: 20rem;
+  }
+
+  @include largescreen {
+    height: 28rem;
+  }
 }
 
 .c-scrollbar {

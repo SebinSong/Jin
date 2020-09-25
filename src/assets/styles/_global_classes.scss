@@ -65,7 +65,7 @@
 }
 
 .brief-paragraph {
-  font-size: $size-body-md;
+  font-size: $size-body-lg;
   margin-bottom: 6rem;
   line-height: 1.4;
 }
@@ -77,7 +77,7 @@
   }
 
   .brief-paragraph {
-    font-size: $size-body-lg;
+    font-size: $size-body-xl;
   }
 }
 
@@ -118,7 +118,7 @@
 
     .page-section__title,
     .page-section__description {
-      margin-left: 3rem;
+      padding: 0 3rem;
     }
   }
 
@@ -130,7 +130,7 @@
 
       .page-section__title,
       .page-section__description {
-        margin-left: 10rem;
+        padding: 0 10rem;
       }
     }
   }
