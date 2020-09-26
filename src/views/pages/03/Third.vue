@@ -926,8 +926,10 @@ export default {
         --l-label-width: 10rem;
 
         .name {
+          font-family: 'Goku';
           font-size: 1.3em;
           font-weight: 700;
+          letter-spacing: 3px;
           margin-bottom: 4rem;
           text-align: center;
           color: var(--feature-color);
@@ -941,6 +943,8 @@ export default {
 
           &-label {
             width: var(--l-label-width);
+            font-family: 'Goku';
+            letter-spacing: 0.5px;
             font-weight: 700;
             text-align: right;
             margin-right: 2rem;
@@ -963,6 +967,8 @@ export default {
         display: block;
         margin-top: 2.5rem;
         font-size: $size-body-xxl;
+        font-family: 'Goku';
+        letter-spacing: 1px;
 
         .characteristics-item {
           display: inline-block;
@@ -1162,9 +1168,11 @@ export default {
     padding: 5rem 4rem 7rem;
     color: $text-white;
     background-color: var(--feature-color-dark);
+    letter-spacing: 1px;
     font: {
       size: $size-body-xxl;
       weight: 700;
+      family: 'Goku';
     }
 
     @include tablet {
@@ -1310,7 +1318,7 @@ export default {
       }
 
       .explanation.first {
-        top: 2rem;
+        top: -10rem;
         right: 4rem;
         max-width: 30rem;
         margin-bottom: 0;
@@ -1342,8 +1350,8 @@ export default {
         max-width: 26rem;
       }
       .explanation.first {
-        top: 2rem;
-        right: 12rem;
+        top: -7.5rem;
+        right: 10rem;
 
         &::after {
           width: 16rem;
@@ -1351,7 +1359,7 @@ export default {
       }
       .explanation.second {
         top: 18rem;
-        right: 5rem;
+        right: 8rem;
       }
     }
 
@@ -1364,8 +1372,8 @@ export default {
         right: 18rem;
       }
       .explanation.second {
-        top: 32rem;
-        right: 10rem;
+        top: 26rem;
+        right: 14rem;
       }
 
       .title-deco.dreamlist {
@@ -1393,7 +1401,9 @@ export default {
 
       .title {
         font-size: $size-body-huge;
+        font-family: 'Goku';
         font-weight: 700;
+        letter-spacing: 2px;
         padding: 1.6rem 0;
         color: var(--feature-color-dark);
         border-bottom: 1px solid var(--feature-color-dark);
