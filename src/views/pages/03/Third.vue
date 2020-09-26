@@ -22,17 +22,17 @@ page-template.c-dreamlist(
       strong they do not have enough money, motivation and willingness.
 
     template(#extra-content)
-      .c-brief-card-container
-        styled-box.c-brief-card
+      .brief-card-container
+        styled-box.brief-card
           p.color-featured.is-quote
             | You may delay, but time will not.
 
-        styled-box.c-brief-card
+        styled-box.brief-card
           p.is-quote
             | Share your dreams with others and get motivated.
             span.color-featured The sky is the limit.
   
-        styled-box.c-brief-card.is-big
+        styled-box.brief-card.is-big
           p.is-quote
             | How can I make 
             span.color-featured my bucket list
@@ -175,7 +175,7 @@ page-template.c-dreamlist(
 
 
   .page-section.no-padding.c-solution.mt-20-10
-    h5.page-section__title.mb-4 Solution
+    h4.page-section__title.mb-4 Solution
 
     p.page-section__description.mb-6
       | People might be motivated by the fact that there are some people 
@@ -415,74 +415,6 @@ export default {
       &:last-child {
         margin-top: -9rem;
         margin-left: -20rem;
-      }
-    }
-  }
-}
-
-.c-brief-card-container {
-  position: relative;
-  width: 100%;
-  padding: 0 3rem;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  align-content: center;
-  flex-wrap: wrap;
-
-  .c-brief-card {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 34rem;
-    min-width: 25rem;
-    padding: 2rem 3rem;
-    margin: 1rem 1.5rem 3rem;
-    text-align: center;
-    font: {
-      size: $size-body-lg;
-      weight: 700;
-    }
-
-    &.is-big {
-      max-width: 100%;
-      padding: 4rem;
-      font-size: $size-body-xxl;
-    }
-
-    @include tablet {
-      font-size: $size-body-xl;
-
-      &.is-big {
-        font-size: $size-body-huge;
-      }
-    }
-
-    @include from (1000px) {
-      &.is-big {
-        max-width: 72rem;
-      }
-    }
- 
-    @include desktop {
-      font-size: $size-body-xxl;
-      padding: 3rem 4rem;
-      max-width: 40rem;
-      margin: 1rem 2.5rem 4rem;
-
-      &.is-big {
-        max-width: 85rem;
-      }
-    }
-
-    @include largescreen {
-      font-size: $size-body-huge;
-      max-width: 50rem;
-      margin: 1rem 4rem 4rem;
-
-      &.is-big {
-        max-width: 108rem;
-        padding: 5rem;
       }
     }
   }

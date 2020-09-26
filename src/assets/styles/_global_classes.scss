@@ -107,6 +107,74 @@
   }
 }
 
+.brief-card-container {
+  position: relative;
+  width: 100%;
+  padding: 0 3rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+  .brief-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 34rem;
+    min-width: 25rem;
+    padding: 2rem 3rem;
+    margin: 1rem 1.5rem 3rem;
+    text-align: center;
+    font: {
+      size: $size-body-lg;
+      weight: 700;
+    }
+
+    &.is-big {
+      max-width: 100%;
+      padding: 4rem;
+      font-size: $size-body-xxl;
+    }
+
+    @include tablet {
+      font-size: $size-body-xl;
+
+      &.is-big {
+        font-size: $size-body-huge;
+      }
+    }
+
+    @include from (1000px) {
+      &.is-big {
+        max-width: 72rem;
+      }
+    }
+ 
+    @include desktop {
+      font-size: $size-body-xxl;
+      padding: 3rem 4rem;
+      max-width: 40rem;
+      margin: 1rem 2.5rem 4rem;
+
+      &.is-big {
+        max-width: 85rem;
+      }
+    }
+
+    @include largescreen {
+      font-size: $size-body-huge;
+      max-width: 50rem;
+      margin: 1rem 4rem 4rem;
+
+      &.is-big {
+        max-width: 108rem;
+        padding: 5rem;
+      }
+    }
+  }
+}
+
 // page-layout related
 .page-section {
   position: relative;
