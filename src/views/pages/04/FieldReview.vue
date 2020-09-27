@@ -34,7 +34,9 @@
       styled-box.c-textbox-small
         p
           | When a person is trying to see symptoms of skin cancer, 
-          | he or she needs another person of uses a full-length mirror.
+          | he or she needs another person of uses 
+          span.color-featured a full-length mirror
+          | .
 
 
 </template>
@@ -87,10 +89,10 @@ export default {
       align-items: center;
       justify-content: center;
       margin-bottom: 4rem;
-      width: 100%;
+      width: 98%;
       height: auto;
 
-      .top-part__title {
+      &__title {
         display: flex;
         align-items: flex-end;
         font-size: $size-body-xxl;
@@ -124,10 +126,6 @@ export default {
 
       .top-part {
         margin-bottom: 6rem;
-
-        .heatmap-image {
-          max-width: 46rem;
-        }
       }
     }
 
@@ -151,6 +149,7 @@ export default {
     }
 
     @include from(1000px) {
+
       .top-part {
         flex-direction: row;
         align-items: flex-end;
@@ -166,15 +165,15 @@ export default {
 
 
     @include desktop {
-      width: calc(100% - 6rem);
-      margin-left: 6rem;
+      width: calc(100% - 4rem);
+      margin-left: 4rem;
       margin-bottom: 0;
-      padding-top: 26rem;
+      padding-top: 20rem;
 
       .top-part {
         position: absolute;
         top: -4rem;
-        left: -4rem;
+        left: -2rem;
     
         .heatmap-image {
           width: 46rem;
@@ -201,18 +200,15 @@ export default {
     }
 
     @include largescreen {
-      padding-top: 35rem;
+      padding-top: 28rem;
 
       p {
         font-size: $size-body-huge;
       }
 
       .top-part {
-        top: -6rem;
-        left: -6rem;
-
         .heatmap-image {
-          width: 76rem;
+          width: 56rem;
           margin-right: 8rem;
         }
 
@@ -237,9 +233,28 @@ export default {
     background-color: $background-white;
     padding: 3rem;
     font-weight: 700;
+    font-size: $size-body-xl;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+    @include phoneblet {
+      font-size: $size-body-xxl;
+    }
+
+    @include tablet {
+      max-width: 75rem;
+    }
+
+    @include desktop {
+      max-width: 90rem;
+      padding: 6rem;
+      font-size: $size-body-huge;
+    }
 
     @include largescreen {
-
+      max-width: 110rem;
+      font-size: 3.2rem;
     }
   }
 }

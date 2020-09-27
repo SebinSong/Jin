@@ -36,7 +36,7 @@ page-template(
   
   
   .page-section.c-insights.mt-20-10
-    h4.mb-4 Insights
+    h4.mb-6 Insights
   
     .c-insights-container
       styled-box.c-insights-graph
@@ -59,43 +59,22 @@ page-template(
         featured-list-item.text-item
           | It is one of the most common type of cancer in NZ.
         featured-list-item.text-item
-          | Difficulties in the initial discovery.
+          strong.color-featured Difficulties in the initial discovery.
         featured-list-item.text-item
-          |  high-cost diagnosis amount.
+          strong.color-featured High-cost 
+          |  diagnosis amount.
   
   field-review
+
+  user-scenario
+
+  user-journey
+
+  key-features
   
+  design-outcome
   
-  .element-container.c-key-service
-    .element-container__para.c-key-service-keywords
-      img(:src='imgPaths.keyService_1')
 
-      .keywords-list
-        .label Key Services
-
-        .item(
-          v-for='item in keywordsList'
-          :key='item.num'
-        )
-          span.num {{ item.num }}
-          span.keyword {{ item.keyword }}
-
-    .element-container__para
-      img.c-keyword-img-2(:src='imgPaths.keyService_2')
-
-  .element-container.c-app-service
-    h3.element-container__title.is-big App service
-
-    .element-container__para.c-app-service-description
-      | Keep track your skin with self checks.
-      br
-      | You can connect with your phone device with smart mirror.
-      br
-      | AI can tells your skin condition and detect any potentials of Melanoma.
-
-    .element-container__para.c-app-service-outcome
-      img.c-app-service-outcome-img(:src='imgPaths.outcome_1')
-      img.c-app-service-outcome-img(:src='imgPaths.outcome_2')
 </template>
 
 <script>
@@ -105,6 +84,10 @@ import StyledBox from '@components/StyledBox.vue'
 import FeaturedListItem from '@components/FeaturedListItem.vue'
 
 import FieldReview from './FieldReview.vue'
+import UserScenario from './UserScenario.vue'
+import KeyFeatures from './KeyFeatures.vue'
+import DesignOutcome from './DesignOutcome.vue'
+import UserJourney from './UserJourney.vue'
 
 export default {
   name: 'Fourth',
@@ -122,22 +105,11 @@ export default {
     PageBriefNew,
     StyledBox,
     FeaturedListItem,
-    FieldReview
-  },
-  computed: {
-    imgPaths () {
-      const path = fileName => require('@/assets/images/04/' + fileName)
-
-      return {
-        bgPattern_top: path('bgpattern-top.png'),
-        bgPattern_bottom: path('bgpattern-bottom.png'),
-        brief: path('brief.png'),
-        keyService_1: path('key-service.jpg'),
-        keyService_2: path('key-service-2.jpg'),
-        outcome_1: path('outcome-1.jpg'),
-        outcome_2: path('outcome-2.jpg')
-      }
-    }
+    FieldReview,
+    UserScenario,
+    KeyFeatures,
+    DesignOutcome,
+    UserJourney
   }
 }
 </script>
@@ -315,91 +287,6 @@ export default {
         font-size: $size-body-huge;
       }
     }
-  }
-}
-
-
-
-
-
-.c-key-service {
-  background-color: $background-light-grey;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-
-  &-keywords {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    img {
-      display: block;
-      width: 42rem;
-      margin-right: 8.5rem;
-    }
-
-    .keywords-list {
-      display: flex;
-      flex-direction: column;
-
-      .label {
-        font: {
-          family: 'Goku';
-          weight: 700;
-          size: 5rem;
-        }
-        margin-bottom: 2rem;
-      }
-      .item {
-        margin-bottom: 1.5rem;
-        display: flex;
-        align-items: center;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        > span {
-          display: inline-block;
-        }
-
-        > span.num {
-          font: {
-            family: 'Goku';
-            weight: 700;
-            size: 5rem;
-          }
-          color: $ref_04;
-          margin-right: 2rem;
-        }
-
-        > span.keyword {
-          font-size: $size-body-xl;
-        }
-      }
-
-    }
-  }
-
-  .c-keyword-img-2 {
-    display: block;
-    width: 80%;
-    margin: 4rem auto 0;
-  }
-}
-
-.c-app-service {
-
-  &-description {
-    text-align: center;
-    margin-bottom: 5rem;
-  }
-
-  &-outcome-img {
-    display: block;
-    width: 80%;
-    margin: 0 auto 4rem;
   }
 }
 </style>
