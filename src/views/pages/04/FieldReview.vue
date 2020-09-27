@@ -114,7 +114,7 @@ export default {
     }
 
     p {
-      font-size: $size-body-md;
+      font-size: $size-body-lg;
     }
 
     @include phoneblet {
