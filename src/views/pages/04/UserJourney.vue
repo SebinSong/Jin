@@ -202,14 +202,14 @@ export default {
     }
 
     @include tablet {
-      margin-right: 2.5rem;
+      margin-right: 6rem;
       margin-bottom: unset;
       justify-content: flex-start;
       width: max-content;
       
       .cardname {
         width: var(--card-width);
-        height: var(--card-height);
+        height: auto;
         background-color: var(--feature-color);
         color: $text-white;
         padding: 3rem 2rem;
@@ -224,8 +224,17 @@ export default {
 
       .cardname {
         font-size: $size-body-xxl;
+        width: calc(var(--card-width) * 0.6);
+        height: var(--card-height);
       }
     }
+
+    @include desktop {
+      .cardname {
+        width: var(--card-width);
+      }
+    }
+
   }
 
   .g-before,
@@ -256,6 +265,7 @@ export default {
       font-size: $size-body-lg;
       text-align: center;
       margin-bottom: 2rem;
+      margin-left: -1.8rem;
 
       &::after,
       &::before {
@@ -279,6 +289,10 @@ export default {
         left: 0;
         transform-origin: left bottom;
         transform: skewX(-35deg);
+      }
+
+      @include phoneblet {
+        margin-left: unset;
       }
 
       @include from(1000px) {

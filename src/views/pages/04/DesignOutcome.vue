@@ -72,13 +72,13 @@ export default {
 .c-outcome-container {
   position: relative;
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 
   .outcome-image {
     display: block;
     width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
 
     &:not(:last-child) {
       margin-bottom: 4rem;
@@ -98,8 +98,18 @@ export default {
   }
 
   @include from(1000px) {
-    .outcome-image:not(:last-child) {
-      margin-bottom: 8rem;
+    .outcome-image {
+      max-width: 96rem;
+
+      &:not(:last-child) {
+        margin-bottom: 8rem;
+      }
+    }
+  }
+
+  @include largescreen {
+    .outcome-image {
+      max-width: 110rem;
     }
   }
 }

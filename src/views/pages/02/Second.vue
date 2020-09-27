@@ -362,12 +362,16 @@ export default {
   max-width: 60rem;
 
   @include tablet {
-    font-size: $size-body-huge;
+    font-size: $size-body-xxl;
   }
 
   @include desktop {
-    font-size: 3rem;
+    font-size: $size-body-huge;
     max-width: 80rem;
+  }
+
+  @include largescreen {
+    font-size: 2.8rem;
   }
 }
 

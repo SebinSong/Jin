@@ -77,7 +77,7 @@
   }
 
   .brief-paragraph {
-    font-size: $size-body-xl;
+    font-size: $size-body-lg;
   }
 }
 
@@ -89,7 +89,7 @@
   }
 
   .brief-paragraph {
-    font-size: $size-body-xxl;
+    font-size: $size-body-xl;
     margin-bottom: 8rem;
   }
 }
@@ -102,7 +102,7 @@
   }
 
   .brief-paragraph {
-    font-size: $size-body-huge;
+    font-size: $size-body-xxl;
     margin-bottom: 9.5rem;
   }
 }
@@ -134,14 +134,14 @@
     &.is-big {
       max-width: 100%;
       padding: 4rem;
-      font-size: $size-body-xxl;
+      font-size: $size-body-xl;
     }
 
     @include tablet {
       font-size: $size-body-xl;
 
       &.is-big {
-        font-size: $size-body-huge;
+        font-size: $size-body-xxl;
       }
     }
 
@@ -159,11 +159,11 @@
 
       &.is-big {
         max-width: 85rem;
+        font-size: $size-body-huge;
       }
     }
 
     @include largescreen {
-      font-size: $size-body-huge;
       max-width: 50rem;
       margin: 1rem 4rem 4rem;
 
@@ -203,14 +203,6 @@
     }
   }
 
-  &__description {
-    font-size: $size-body-lg;
-
-    @include tablet {
-      font-size: $size-body-xl;
-    }
-  }
-
   .page-section__description {
     font-size: $size-body-lg;
 
@@ -218,16 +210,12 @@
       margin-bottom: 2rem;
     }
 
-    @include tablet {
+    @include desktop {
       font-size: $size-body-xl;
     }
 
-    @include desktop {
-      font-size: $size-body-xxl;
-    }
-
     @include largescreen {
-      font-size: $size-body-huge;
+      font-size: $size-body-xxl;
     }
   }
 }

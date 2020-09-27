@@ -152,7 +152,7 @@ export default {
       }
 
       .key-problems__item {
-        font-size: $size-body-xxl;
+        font-size: $size-body-xl;
       }
     }
   }
@@ -191,18 +191,17 @@ export default {
 
     .top-description,
     .bottom-text {
-      font-size: $size-body-huge;
-      font-size: 3.2rem;
+      font-size: $size-body-xxl;
     }
   }
 
   @include desktop {
-    max-width: 100rem;
+    max-width: 86rem;
   }
 
   @include largescreen {
     padding: 8rem;
-    max-width: 120rem;
+    max-width: 100rem;
 
     .user-image {
       width: 40rem;
@@ -214,7 +213,7 @@ export default {
 
       .top-description,
       .bottom-text {
-        font-size: 3.2rem;
+        font-size: 2.4rem;
       }
       
       .key-problems {
@@ -223,7 +222,7 @@ export default {
 
         &__label,
         &__item {
-          font-size: $size-body-huge;
+          font-size: $size-body-xxl;
         }
       }
     }

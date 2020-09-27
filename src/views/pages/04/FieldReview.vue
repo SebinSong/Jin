@@ -76,6 +76,7 @@ export default {
   }
 
   .c-textbox-big {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -120,10 +121,6 @@ export default {
     @include phoneblet {
       padding: 4rem;
 
-      p {
-        font-size: $size-body-lg;
-      }
-
       .top-part {
         margin-bottom: 6rem;
       }
@@ -165,15 +162,17 @@ export default {
 
 
     @include desktop {
-      width: calc(100% - 4rem);
-      margin-left: 4rem;
+      width: calc(100% - 10rem);
+      max-width: 100rem;
+      margin-left: 5rem;
       margin-bottom: 0;
-      padding-top: 20rem;
+      padding-top: 24rem;
 
       .top-part {
         position: absolute;
+        width: 100%;
         top: -4rem;
-        left: -2rem;
+        left: -4rem;
     
         .heatmap-image {
           width: 46rem;
@@ -190,20 +189,23 @@ export default {
         }
 
         .paragraph {
-          font-size: $size-body-xxl;
+          font-size: $size-body-xl;
         }
       }
 
       p {
-        font-size: $size-body-xxl;
+        font-size: $size-body-xl;
       }
     }
 
     @include largescreen {
+      width: calc(100% - 30rem);
+      max-width: unset;
+      margin-left: 14rem;
       padding-top: 28rem;
 
       p {
-        font-size: $size-body-huge;
+        font-size: $size-body-xl;
       }
 
       .top-part {
@@ -221,7 +223,7 @@ export default {
         }
 
         .paragraph {
-          font-size: $size-body-huge;
+          font-size: $size-body-xxl;
         }
       }
     }
