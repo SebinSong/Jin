@@ -19,9 +19,6 @@ export default {
       required: false,
       default: null
     }
-  },
-  mounted () {
-    console.log('flexImageList: ', this.imageList)
   }
 }
 </script>

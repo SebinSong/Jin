@@ -36,6 +36,7 @@ export const modalItemList = [
     date: '2019.5',
     routeName: 'Fourth'
   },
+  /*
   {
     number: '05',
     id: '05',
@@ -45,6 +46,7 @@ export const modalItemList = [
     date: '2019.3',
     routeName: 'Fifth'
   }
+  */
 ]
 
 export const pageData = {
@@ -112,15 +114,5 @@ export const pageData = {
       pageIntro: null
     },
     routeName: 'Fifth'
-  }
-}
-
-export const briefData = {
-  '01': {
-    title: 'Current situation',
-    content: [
-      'Current systems do not provide teachers with effective resources when it comes to teaching <strong>contraception</strong> in their classroom’s. There is no set standard on what to teach or how to teach this sensitive topic.',
-      'A lot of individual teachers tend to make their own decisions on what and when to teach, due to the lack of resources they have.This is not great, as the teachers may be holding back informationthat can be crucial or life-changing to learners.'
-    ]
   }
 }

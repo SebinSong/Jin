@@ -9,6 +9,7 @@ $text-white: #fff;
 $text-grey-dark: #707070;
 $background-white: #fff;
 $background-grey: #E8E1E1;
+$background-slight-grey: #F1F1F1;
 $background-light-grey: #F8F4F4;
 $scrollbar-bg: #EAEAEA;
 
@@ -19,7 +20,16 @@ $ref_03: #832CC3;
 $ref_04: #01B7FF;
 $ref_05: #E1438C;
 
+:root {
+  --ref_01: #{$ref_01};
+  --ref_02: #{$ref_02};
+  --ref_03: #{$ref_03};
+  --ref_04: #{$ref_04};
+  --ref_05: #{$ref_05};
+}
+
 // font-sizes
+$size-heading-xxl: 11rem;
 $size-heading-xl: 10rem;
 $size-heading-lg: 9rem;
 $size-heading-sm: 3rem;

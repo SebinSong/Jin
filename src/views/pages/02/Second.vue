@@ -21,7 +21,7 @@ page-template.c-art-at-heart(
         .ribbon-element
           linked-boxes(
             topicColor='#FCDADA'
-            bp='tablet'
+            bp='tabletop'
           )
             template(#topic)
               | Volunteers
@@ -340,7 +340,7 @@ export default {
       }
     },
     isDesktop () {
-      return ['tablet', 'desktop'].includes(this.$mq)
+      return ['tablet', 'tabletop', 'desktop', 'largescreen'].includes(this.$mq)
     }
   }
 }

@@ -1,11 +1,11 @@
 <template lang="pug">
 .c-app(
   ref='app'
-  :class="{ 'with-no-scrollbar': noScrollbar }"
+  :class="[ noScrollbar && 'with-no-scrollbar', 'is-page-0' + currentPageNumber ]"
   :style="styleClasses"
   @scroll='onScroll'
 )
-  router-view
+  router-view(ref='page')
   modal(v-if='modalOn')
 </template>
 
@@ -25,7 +25,8 @@ export default {
     return {
       modalOn: false,
       noScrollbar: false,
-      scrollbarWidth: 0
+      scrollbarWidth: 0,
+      currentPageNumber: 0
     }
   },
   computed: {
@@ -75,6 +76,9 @@ export default {
       const yFraction = scrollTop / (scrollHeight - window.innerHeight)
 
       Bus.$emit(eventList.appOnScroll, { yFraction })
+    },
+    updatePageNumber (pageNumber) {
+      this.currentPageNumber = pageNumber
     }
   },
   watch: {
@@ -87,6 +91,7 @@ export default {
     Bus.$on(eventList.closeModal, this.closeModal)
     Bus.$on(eventList.toScrollTop, this.toScrollTop)
     Bus.$on(eventList.scrollBarMove, this.scrollTo)
+    Bus.$on(eventList.updatePageNumber, this.updatePageNumber)
 
     this.measureBrowserScrollbarWidth()
     this.inspectRoute()
@@ -95,6 +100,8 @@ export default {
     Bus.$off(eventList.openModal, this.openModal)
     Bus.$off(eventList.closeModal, this.closeModal)
     Bus.$off(eventList.toScrollTop, this.toScrollTop)
+    Bus.$off(eventList.scrollBarMove, this.scrollTo)
+    Bus.$off(eventList.updatePageNumber, this.updatePageNumber)
   }
 }
 </script>
@@ -115,6 +122,12 @@ export default {
     bottom: 0;
     width: unset;
     height: unset;
+  }
+
+  @for $n from 1 through 5 {
+    &.is-page-0#{$n} {
+      --feature-color: var(--ref_0#{$n});
+    }
   }
 }
 

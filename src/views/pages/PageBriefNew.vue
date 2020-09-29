@@ -88,7 +88,9 @@ export default {
     },
     bgPattern () {
       switch(this.$mq) {
+        case 'largescreen':
         case 'desktop':
+        case 'tabletop':
           return {
             width: 350,
             height: 50,
@@ -97,6 +99,7 @@ export default {
             lineOffset: 15
           }
         case 'tablet':
+        case 'phone':
           return {
             width: 300,
             height: 35,

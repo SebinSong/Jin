@@ -8,6 +8,10 @@
 
 <script>
 import HamburgerIcon from './hamburgerIcon.vue'
+import {
+  Bus,
+  eventList
+} from '@controller/eventBus.js'
 
 export default {
   name: 'PageToolbar',
@@ -16,6 +20,8 @@ export default {
   },
   methods: {
     toHome () {
+      Bus.$emit(eventList.updatePageNumber, 0)
+
       this.$router.push({
         name: 'Home'
       })

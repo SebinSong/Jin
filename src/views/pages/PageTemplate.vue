@@ -59,6 +59,10 @@ import PageToolbar from '@components/PageToolbar.vue'
 import PrevNext from '@components/PrevNext.vue'
 import Scrollbar from '@components/ScrollBar.vue'
 import { pageData } from '@utils/resources.js'
+import {
+  Bus,
+  eventList
+} from '@controller/eventBus.js'
 
 export default {
   name: 'PageTemplate',
@@ -93,6 +97,11 @@ export default {
   },
   created () {
     this.projectData = pageData[`0${this.pageNumber}`]
+  },
+  beforeMount () {
+    this.$nextTick(() => {
+      Bus.$emit(eventList.updatePageNumber, this.pageNumber)
+    })
   }
 }
 </script>
@@ -100,19 +109,8 @@ export default {
 <style lang='scss' scoped>
 @import "../../assets/styles/_variables.scss";
 
-$map: (
-  "1": $ref_01,
-  "2": $ref_02,
-  "3": $ref_03,
-  "4": $ref_04,
-  "5": $ref_05
-);
-
 .c-page {
   height: auto;
-  @each $num, $color in $map {
-    &.is-#{$num} { --feature-color: #{$color}; }
-  }
 
   * {
     user-select: none;

@@ -57,10 +57,22 @@ export default {
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: stretch;
   z-index: $zIndex-modal;
   background-color: $background-white;
+  overflow-y: auto;
+
+  @include from(1000px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  @include desktop {
+    padding: 0 10rem;
+  }
 }
 
 .c-close-button {
