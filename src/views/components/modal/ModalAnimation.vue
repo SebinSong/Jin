@@ -1,5 +1,7 @@
 <template lang='pug'>
-.c-modal-animation
+.c-modal-animation(
+  :class="'is-on-page-0' + currentPageNumber"
+)
   .c-modal-animation__layer(
     ref='layer'
     v-for="n in 2"
@@ -16,7 +18,8 @@ export default {
   data () {
     return {
       resizeHandlerDebounced: null,
-      currentAnimationName: 'reveal-layer'
+      currentAnimationName: 'reveal-layer',
+      currentPageNumber: 0
     }
   },
   props: {
@@ -42,7 +45,12 @@ export default {
       this.currentAnimationName = 'wrap-layer'
     }
   },
+  created () {
+    const { currentPageNumber } = this.$root.$children[0]
+    this.currentPageNumber = currentPageNumber
+  },
   mounted () {
+
     this.adjustLayerDimension()
     this.resizeHandlerDebounced = debounce(this.adjustLayerDimension, 30)
 
@@ -67,6 +75,16 @@ export default {
   z-index: 100;
   pointer-events: none;
 
+  &.is-on-page-00 {
+    --modal-ani-feature-color: var(--ref_02);
+  }
+
+  @for $n from 1 through 5 {
+    &.is-on-page-0#{$n} {
+      --modal-ani-feature-color: var(--ref_0#{$n});
+    }
+  }
+
   &__layer {
     position: absolute;
     top: 50%;
@@ -76,7 +94,7 @@ export default {
     animation-fill-mode: forwards;
   }
   &__layer:first-child {
-    background-color: var(--feature-color);
+    background-color: var(--modal-ani-feature-color);
   }
   &__layer:nth-child(2) {
     background-color: $text-black;
