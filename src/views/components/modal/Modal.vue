@@ -1,14 +1,22 @@
 <template lang='pug'>
 .c-modal
-  modal-item(
-    v-for='item in modalItemList'
-    :key='item.id'
-    :itemInfo='item'
-    @click='navigateTo(item.routeName)'
+  .c-modal-content(
+    :class="{ 'is-visible': showModalContent }"
   )
+    modal-item(
+      v-for='item in modalItemList'
+      :key='item.id'
+      :itemInfo='item'
+      @click='navigateTo(item.routeName)'
+    )
 
-  close-button.c-close-button(
-    @click='closeModal'
+    close-button.c-close-button(
+      @click='closeModal'
+    )
+
+  modal-animation(
+    ref='modalAnimation'
+    :duration='aniDuration'
   )
 </template>
 
@@ -16,6 +24,8 @@
 import { modalItemList } from '@utils/resources.js'
 import CloseButton from '@components/CloseButton.vue'
 import ModalItem from './ModalItem.vue'
+import ModalAnimation from './ModalAnimation.vue'
+
 import {
   Bus,
   eventList
@@ -25,24 +35,47 @@ export default {
   name: 'Modal',
   data () {
     return {
-      modalItemList
+      modalItemList,
+      showModalContent: false,
+      aniDuration: 700
     }
   },
   components: {
     ModalItem,
-    CloseButton
+    CloseButton,
+    ModalAnimation
   },
   methods: {
-    closeModal () {
-      Bus.$emit(eventList.closeModal)
+    closeModal (callback) {
+      this.$refs.modalAnimation.triggerWrapAnimation()
+
+      window.setTimeout(() => {
+        this.showModalContent = false
+      }, this.aniDuration/2)
+
+      window.setTimeout(() => {
+        Bus.$emit(eventList.closeModal)
+        callback()
+      }, this.aniDuration + 400)
+      // Bus.$emit(eventList.closeModal)
     },
     navigateTo (routeName) {
-      this.$router.push({
-        name: routeName
-      })
-      this.closeModal()
-      Bus.$emit(eventList.toScrollTop)
+      const callbackToPass = () => {
+        Bus.$emit(eventList.toScrollTop)
+      }
+  
+      this.closeModal(callbackToPass)
+      window.setTimeout(() => {
+        this.$router.push({
+          name: routeName
+        })
+      }, this.aniDuration/2)
     }
+  },
+  mounted () {
+    window.setTimeout(() => {
+      this.showModalContent = true
+    }, this.aniDuration/2)
   }
 }
 </script>
@@ -56,12 +89,32 @@ export default {
   left: 0;
   width: 100vw;
   height: 100vh;
+  z-index: $zIndex-modal;
+}
+
+.c-close-button {
+  position: absolute;
+  z-index: 1;
+  right: 3rem;
+  top: 3rem;
+}
+
+.c-modal-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+  background-color: $background-white;
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  z-index: $zIndex-modal;
-  background-color: $background-white;
   overflow-y: auto;
+
+  &.is-visible {
+    visibility: visible;
+  }
 
   @include from(1000px) {
     flex-direction: row;
@@ -73,12 +126,5 @@ export default {
   @include desktop {
     padding: 0 10rem;
   }
-}
-
-.c-close-button {
-  position: absolute;
-  z-index: 1;
-  right: 3rem;
-  top: 3rem;
 }
 </style>

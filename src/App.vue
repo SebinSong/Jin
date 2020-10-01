@@ -124,6 +124,10 @@ export default {
     height: unset;
   }
 
+  &.is-page-00 {
+    --feature-color: var(--ref_02);
+  }
+
   @for $n from 1 through 5 {
     &.is-page-0#{$n} {
       --feature-color: var(--ref_0#{$n});

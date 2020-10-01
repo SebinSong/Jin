@@ -117,9 +117,8 @@ $modal-border-color: #E8E1E1;
 
 .c-number {
   position: absolute;
-  z-index: -1;
-  bottom: -3.3rem;
-  left: -1.5rem;
+  bottom: -4rem;
+  left: -1.2rem;
   font: {
     size: $size-heading-lg;
     weight: 700;
@@ -128,7 +127,7 @@ $modal-border-color: #E8E1E1;
 
   .c-modal-item:nth-child(even) & {
     left: unset;
-    right: -1.5rem;
+    right: -1.2rem;
   }
 
   .c-app.is-page-00 & {
@@ -141,7 +140,6 @@ $modal-border-color: #E8E1E1;
 
   @include phoneblet {
     font-size: $size-heading-xl;
-    bottom: -4rem;
     left: -1.5rem;
 
     .c-modal-item:nth-child(even) & {
@@ -298,7 +296,6 @@ $modal-border-color: #E8E1E1;
   bottom: -4rem;
   left: 8rem;
   width: auto;
-  z-index: -2;
   order: 10;
 
   .c-modal-item:nth-child(even) & {

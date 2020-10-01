@@ -322,3 +322,18 @@
     margin-bottom: 0;
   }
 }
+
+
+// modal animations
+
+@keyframes reveal-layer {
+  0% { transform: rotate(45deg) translateY(100%); }
+  50% { transform: rotate(45deg) translateY(0); }
+  100% { transform: rotate(45deg) translateY(-100%); }
+}
+
+@keyframes wrap-layer {
+  0% { transform: rotate(45deg) translateY(-100%); }
+  50% { transform: rotate(45deg) translateY(0); }
+  100% { transform: rotate(45deg) translateY(100%); }
+}
