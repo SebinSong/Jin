@@ -327,13 +327,13 @@
 // modal animations
 
 @keyframes reveal-layer {
-  0% { transform: rotate(45deg) translateY(100%); }
-  50% { transform: rotate(45deg) translateY(0); }
-  100% { transform: rotate(45deg) translateY(-100%); }
+  0% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 100%, 0); }
+  50% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0); }
+  100% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, -100%, 0); }
 }
 
 @keyframes wrap-layer {
-  0% { transform: rotate(45deg) translateY(-100%); }
-  50% { transform: rotate(45deg) translateY(0); }
-  100% { transform: rotate(45deg) translateY(100%); }
+  0% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, -100%, 0); }
+  50% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 0, 0); }
+  100% { transform: rotate3d(0, 0, 1, 45deg) translate3d(0, 100%, 0); }
 }
