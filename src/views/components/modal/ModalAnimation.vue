@@ -2,7 +2,7 @@
 .c-modal-animation
   .c-modal-animation__layer(
     ref='layer'
-    v-for="n in 3"
+    v-for="n in 2"
     :key="n"
     :style="{ animationDuration: duration + 'ms', animationName: currentAnimationName }"
   )
@@ -79,12 +79,8 @@ export default {
     background-color: var(--feature-color);
   }
   &__layer:nth-child(2) {
-    background-color: $background-white;
-    animation-delay: 0.2s;
-  }
-  &__layer:nth-child(3) {
-    animation-delay: 0.4s;
     background-color: $text-black;
+    animation-delay: 0.1s;
   }
 }
 </style>

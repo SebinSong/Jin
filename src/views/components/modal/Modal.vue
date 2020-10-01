@@ -37,7 +37,7 @@ export default {
     return {
       modalItemList,
       showModalContent: false,
-      aniDuration: 650
+      aniDuration: 500
     }
   },
   components: {
@@ -56,7 +56,7 @@ export default {
       window.setTimeout(() => {
         Bus.$emit(eventList.closeModal)
         callback()
-      }, this.aniDuration + 400)
+      }, this.aniDuration + 100)
       // Bus.$emit(eventList.closeModal)
     },
     navigateTo (routeName) {
