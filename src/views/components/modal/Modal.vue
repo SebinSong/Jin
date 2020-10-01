@@ -37,7 +37,7 @@ export default {
     return {
       modalItemList,
       showModalContent: false,
-      aniDuration: 700
+      aniDuration: 650
     }
   },
   components: {
