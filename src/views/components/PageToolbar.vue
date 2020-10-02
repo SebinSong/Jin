@@ -34,7 +34,7 @@ export default {
 @import "../../assets/styles/_variables.scss";
 
 .c-toolbar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
@@ -43,6 +43,9 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: $background-white;
+  border: 1px solid $background-slight-grey;
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.015);
   z-index: 3;
 
   @include tablet {

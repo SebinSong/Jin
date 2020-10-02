@@ -123,7 +123,7 @@ export default {
   min-height: 100vh;
   overflow: hidden;
   border-bottom: 1px solid $background-grey;
-  padding-top: $page-toolbar-height;
+  padding-top: calc(#{$page-toolbar-height} + 4rem);
 }
 
 .c-page-introduction {
