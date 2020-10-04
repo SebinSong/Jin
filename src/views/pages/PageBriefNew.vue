@@ -84,7 +84,7 @@ export default {
   },
   computed: {
     isPhone () {
-      return ['phone', 'small'].includes(this.$mq)
+      return ['phoneblet', 'phone', 'small'].includes(this.$mq)
     },
     bgPattern () {
       switch(this.$mq) {
@@ -99,7 +99,7 @@ export default {
             lineOffset: 15
           }
         case 'tablet':
-        case 'phone':
+        case 'phoneblet':
           return {
             width: 300,
             height: 35,

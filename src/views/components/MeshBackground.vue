@@ -6,40 +6,65 @@ svg.c-canvas(
 </template>
 
 <script>
+import { debounce } from '@utils/utils.js'
+
 export default {
   name: 'MeshBackground',
+  data () {
+    return {
+      debouncedResizeHandler: null
+    }
+  },
+  computed: {
+    meshSideLength () {
+      switch (this.$mq) {
+        case 'small':
+        case 'phone':
+        case 'phoneblet':
+          return 10
+        case 'tablet':
+          return 15
+        default:
+          return 20
+      }
+    }
+  },
+  methods: {
+    drawMesh () {
+      const { canvas, path: pathEl } = this.$refs
+      const canvasBox = canvas.getBoundingClientRect()
+      const viewBox = { 
+        w: canvasBox.width, 
+        h: canvasBox.height 
+      }
+
+      let d = ''
+      let [ columnAmount, rowAmount ] = [
+        Math.ceil(viewBox.w / this.meshSideLength),
+        Math.ceil(viewBox.h / this.meshSideLength)
+      ]
+
+      for(let i=0; i<columnAmount; i++) {
+        const currentX = i * this.meshSideLength
+        d += `M${currentX},0 L${currentX},${viewBox.h} `
+      }
+
+      for(let j=0; j<rowAmount; j++) {
+        const currentY = j * this.meshSideLength
+        d += `M0,${currentY} L${viewBox.w},${currentY} `
+      }
+
+      pathEl.setAttribute('d', d)
+    }
+  },
   mounted () {
-    const canvas = this.$refs.canvas
-    const pathEl = this.$refs.path
-    const viewBox = {
-      w: null, h: null
-    }
+    this.drawMesh()
+    this.debouncedResizeHandler = debounce(this.drawMesh, 20)
 
-    const MESH_SIDE_LENGTH = 20
-    let columnAmount, rowAmount, d
-
-    init()
-    d = ''
-
-    for(let i=0; i<columnAmount; i++) {
-      const currentX = i * MESH_SIDE_LENGTH
-      d += `M${currentX},0 L${currentX},${viewBox.h} `
-    }
-    for(let j=0; j<rowAmount; j++) {
-      const currentY = j * MESH_SIDE_LENGTH
-      d += `M0,${currentY} L${viewBox.w},${currentY} `
-    }
-    pathEl.setAttribute('d', d)
-
-    function init () {
-      const { width, height } = canvas.getBoundingClientRect()
-
-      viewBox.w = width
-      viewBox.h = height
-
-      columnAmount = Math.ceil(viewBox.w / MESH_SIDE_LENGTH)
-      rowAmount = Math.ceil(viewBox.h / MESH_SIDE_LENGTH)
-    }
+    window.addEventListener('resize', this.debouncedResizeHandler)
+  },
+  beforeDestroy () {
+    window.removeEventListener('resize', this.debouncedResizeHandler)
   }
 }
 </script>

@@ -40,11 +40,20 @@ export default {
 @import "../../../assets/styles/_variables.scss";
 
 .c-home-main-title {
+  position: relative;
   border: 1px solid $text-black;
   color: $text-black;
   padding: 2rem;
-  width: max-content;
+  width: min-content;
   height: max-content;
+
+  @media screen and (max-height: 700px) and (max-width: 440px) {
+    width: max-content;
+  }
+
+  @include phoneblet {
+    width: max-content;
+  }
 
   .c-text-container {
     position: relative;
@@ -55,8 +64,37 @@ export default {
 
     .text {
       font: {
-        size: 12rem;
+        size: 5.6rem;
         weight: 700;
+      }
+      letter-spacing: 0.04em;
+
+      @media screen and (max-height: 700px) and (max-width: 440px) {
+        font-size: 12vw;
+      }
+
+      @include from(600px) {
+        font-size: 7.6rem;
+      }
+
+      @include tablet {
+        font-size: 9.5rem;
+      }
+
+      @include desktop {
+        font-size: 12rem;
+      }
+
+      @include from(1400px) {
+        font-size: 15rem;
+      }
+
+      @include largescreen {
+        font-size: 18rem;
+      }
+
+      @include from(1800px) {
+        font-size: 20rem;
       }
     }
   }

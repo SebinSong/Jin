@@ -6,16 +6,24 @@
     viewBox="0 0 150 70"
   )
     path.c-cloud(
-      d="M 0,0 h150 v55 h-68 l-7,15 -7,-15 h-68 z"
+      :d="isUpsideDown? 'M 0,15 h68 l7,-15 7,15 h68 v55 h-150 z' : 'M 0,0 h150 v55 h-68 l-7,15 -7,-15 h-68 z'"
     )
     text.c-welcome-text(
-      x="75" y="35"
+      x="75" 
+      :y="isUpsideDown? 50 : 35"
     ) Welcome!
 </template>
 
 <script>
 export default {
-  name: 'TextCloud'
+  name: 'TextCloud',
+  props: {
+    isUpsideDown: {
+      type: Boolean,
+      default: true,
+      required: false
+    }
+  }
 }
 </script>
 
@@ -24,9 +32,13 @@ export default {
 
 .c-text-cloud {
   position: absolute;
-  width: 15rem;
-  height: 7rem;
+  width: 12rem;
+  height: 5rem;
 
+  @include tablet {
+    width: 15rem;
+    height: 7rem;
+  }
 }
 
 .c-svg {

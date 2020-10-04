@@ -55,7 +55,7 @@ export default {
 
       window.setTimeout(() => {
         Bus.$emit(eventList.closeModal)
-        callback()
+        callback && callback()
       }, this.aniDuration + 100)
       // Bus.$emit(eventList.closeModal)
     },

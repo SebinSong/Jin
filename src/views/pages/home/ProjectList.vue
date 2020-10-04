@@ -78,7 +78,19 @@ export default {
 @import "../../../assets/styles/_variables.scss";
 
 .c-project-list {
-  padding-right: 8.5rem;
+  padding-right: 0;
+  
+  @include tablet {
+    padding-right: 2.6rem;
+  }
+
+  @include desktop {
+    padding-right: 4rem;
+  }
+
+  @include largescreen {
+    padding-right: 8.5rem;
+  }
 }
 
 .c-list-container {
@@ -90,8 +102,50 @@ export default {
 .c-title {
   display: block;
   padding: 1.5rem 2rem;
+  padding-left: 1rem;
   border-bottom: 1px solid $text-grey-dark;
   user-select: none;
+
+  @include phoneblet {
+    padding-left: 2rem;
+  }
+
+  @include largescreen {
+    padding-left: 7rem;
+  }
+}
+
+.c-list-title {
+  position: relative;
+  width: 24rem;
+  height: 4.7rem;
+
+  @include phoneblet {
+    width: 30rem;
+    height: 6rem;
+  }
+
+  @include from (1000px) {
+    width: 37rem;
+    height: 7rem;
+  }
+
+  @include largescreen {
+    width: 50rem;
+    height: 9.5rem;
+  }
+
+  &--text {
+    text-anchor: middle;
+    fill: none;
+    stroke: $text-black {
+      width: 1px;
+    }
+    font: {
+      size: 4rem;
+      weight: 700;
+    }
+  }
 }
 
 .c-list-item {
@@ -132,24 +186,6 @@ export default {
     }
     .project-type.commercial::before {
       background-color: $text-red;
-    }
-  }
-}
-
-.c-list-title {
-  position: relative;
-  width: 37rem;
-  height: 7rem;
-
-  &--text {
-    text-anchor: middle;
-    fill: none;
-    stroke: $text-black {
-      width: 1px;
-    }
-    font: {
-      size: 4rem;
-      weight: 700;
     }
   }
 }

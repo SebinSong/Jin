@@ -49,7 +49,7 @@ export default {
   computed: {
     orientation () {
       const bpList = [
-        'small', 'phone', 'tablet', 'tabletop', 'desktop', 'largescreen'
+        'small', 'phone', 'phoneblet', 'tablet', 'tabletop', 'desktop', 'largescreen'
       ]
       const currentIndex = bpList.indexOf(this.$mq)
       const bpIndex = bpList.indexOf(this.bp)

@@ -50,7 +50,7 @@ export default {
 .c-timeline {
   position: absolute;
   width: 0.3rem;
-  height: 133.75vh;
+  height: calc(100vh + 18rem);
   border-radius: 0.3rem;
   background-color: $text-red;
 
@@ -80,33 +80,106 @@ export default {
     content: 'start';
     display: block;
     position: relative;
-    font-size: 1.35rem;
+    font-size: $size-body-lg;
+    letter-spacing: 1px;
     margin-left: 2rem;
+
+    @include largescreen {
+      font-size: $size-body-xxl;
+    }
+
+    @media screen and (min-height: 800px) {
+      font-size: $size-body-xl;
+    }
+
+    @media screen and (min-height: 1100px) {
+      font-size: $size-body-xxl;
+    }
   }
 
   .timeline__text {
     position: absolute;
     color: $text-red;
-    font-size: 6.4rem;
+    font-size: 5.2rem;
     font-weight: 700;
     writing-mode: vertical-lr;
-    transform: rotate(-180deg) translateX(78%);
+    transform: rotate(0deg) translateX(-10%);
     bottom: 100.5vh;
   }
 
   .timeline__container {
     position: absolute;
     left: -0.8rem;
-    top: 35rem;
+    top: 25rem;
     width: max-content;
     height: max-content;
+  }
+
+  @include tablet {
+    .timeline__text {
+      transform: rotate(-180deg) translateX(78%);
+    }
+  }
+
+  @media screen and (min-height: 800px) {
+    height: calc(100vh + 24rem);
+
+    .timeline__text {
+      font-size: 6.4rem;
+    }
+
+    .timeline__container {
+      top: 35rem;
+    }
+  }
+
+  @media screen and (min-height: 1100px) {
+    height: calc(100vh + 50rem);
+
+    .timeline__text {
+      font-size: 8rem;
+    }
+
+    .timeline__container {
+      top: 70rem;
+    }
   }
 }
 
 .c-hello-text {
   position: relative;
-  width: 52.5rem;
-  height: 10rem;
+  width: 22rem;
+  height: 4.7rem;
+
+  @include phoneblet {
+    width: 30rem;
+    height: 6rem;
+  }
+
+  @include from(600px) {
+    width: 38rem;
+    height: 7.6rem;
+  }
+
+  @include tablet {
+    width: 44rem;
+    height: 8.5rem;
+  }
+
+  @include from(1000px) {
+    width: 52.5rem;
+    height: 10rem;
+  }
+  
+  @include desktop {
+    width: 62rem;
+    height: 14rem;
+  }
+
+  @include largescreen {
+    width: 80rem;
+    height: 18rem;
+  }
 
   .hello {
     font-size: 7rem;
