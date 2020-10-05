@@ -77,6 +77,9 @@ export default {
       })
     },
     scrollHandler () {
+      if (!this.$refs.home)
+        return
+
       const { sections } = this.sectionDetector
       const currentScrollTop = this.$refs.home.scrollTop
 

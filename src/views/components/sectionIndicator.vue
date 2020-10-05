@@ -83,6 +83,14 @@ export default {
     transform: translateX(120%);
     overflow: hidden;
 
+    @include desktop {
+      font-size: $size-body-sm;
+    }
+
+    @include largescreen {
+      font-size: $size-body-md;
+    }
+
     &::after {
       content: '';
       position: absolute;

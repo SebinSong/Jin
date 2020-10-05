@@ -59,7 +59,7 @@ export default {
     initData () {
       if (this.currentPageNumber > 1)
         this.prevData = pageData[`0${this.currentPageNumber - 1}`]
-      if (this.currentPageNumber < 5)
+      if (this.currentPageNumber < 4)
         this.nextData = pageData[`0${this.currentPageNumber + 1}`]
     },
     navigateTo (data) {
