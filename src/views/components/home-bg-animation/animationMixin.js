@@ -205,8 +205,18 @@ const animationMixin = {
       gutters: null,
       bigBox: null,
       smallBox: null,
-      animationStage: 0
+      animationStage: 0,
+      constants: {
+        barWidth: null,
+        gutterWidth: null,
+        direction: 'column'
+      }
     }
+  },
+  computed: {
+    isMobile () {
+     return ['small', 'phone', 'phoneblet'].includes(this.$mq)
+    } 
   },
   mounted () {
     this.el = this.$refs.canvas
@@ -219,7 +229,40 @@ const animationMixin = {
     this.killAnimation()
   },
   methods: {
+    initializeConstants () {
+      if (this.isMobile)
+        this.constants.direction = 'row'
+      else
+        this.constants.direction = 'column'
+
+      this.constants.gutterWidth = 2
+
+      switch (this.$mq) {
+        case 'small':
+        case 'phone':
+          this.constants.barWidth = 60
+          break
+        case 'phoneblet':
+        case 'tablet':
+          this.constants.barWidth = 80
+          break
+        case 'tabletop':
+          this.constants.barWidth = 140
+          break
+        case 'desktop':
+          this.constants.barWidth = 180
+          break
+        case 'largescreen':
+          this.constants.barWidth = 240
+          this.constants.gutterWidth = 4
+          break
+        default: 
+          this.constants.barWidth = 240
+      }
+    },
     initializeAnimation () {
+      this.initializeConstants()
+
       this.bars = []
       this.gutters = []
 

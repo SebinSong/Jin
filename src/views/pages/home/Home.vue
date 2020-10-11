@@ -1,6 +1,6 @@
 <template lang='pug'>
 .c-home(ref='home')
-  background-animation(v-if='false')
+  background-animation
 
   main-section-one(
     @scroll-to="scrollTo"
@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import BackgroundAnimation from '@components/home-bg-animation/HomeBgAnimation.vue'
+import BackgroundAnimation from './HomeAnimationNew.vue'
 import SectionIndicator from '@components/sectionIndicator.vue'
 import StringTyper from '@components/stringTyper.vue'
 import Timeline from './Timeline.vue'

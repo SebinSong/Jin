@@ -15,14 +15,17 @@
     :class="corner"
   )
 
-  span.c-pointer
-    span.c-pointer--triangle
-    span.c-pointer--bar
+  pointer.c-pointer
 </template>
 
 <script>
+import Pointer from '@components/Pointer.vue'
+
 export default {
   name: 'HomeMainTitle',
+  components: {
+    Pointer
+  },
   data () {
     return {
       corners: [ 
@@ -178,34 +181,5 @@ export default {
   position: absolute;
   bottom: 0%;
   right: 0%;
-  width: 1.4rem;
-  height: 1.4rem;
-  transform-origin: 50% 50%;
-  transform: translate(80%, 80%) rotate(-45deg);
-
-  > * {
-    position: absolute;
-  }
-
-  &--triangle {
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 1px;
-    border-top: 0px solid rgba(0,0,0,0);
-    border-left: 0.7rem solid rgba(0,0,0,0);
-    border-right: 0.7rem solid rgba(0,0,0,0);
-    border-bottom: 1.4rem solid $text-black;
-  }
-
-  &--bar {
-    top: 100%;
-    left: 55%;
-    width: 0.3rem;
-    height: 1rem;
-    border-radius: 0.2rem;
-    background-color: $text-black;
-    transform: translateX(-50%);
-  }
 }
 </style>
